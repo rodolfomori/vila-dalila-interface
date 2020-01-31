@@ -8,6 +8,7 @@ import Routes from './routes';
 import history from './services/history';
 import { persistor, store } from './store';
 import GlobalStyle from './styles/global';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 function App() {
   return (
