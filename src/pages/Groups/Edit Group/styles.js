@@ -4,16 +4,19 @@ import { Form, Input } from '@rocketseat/unform';
 
 export const Container = styled.div`
   height: 100%;
-  background-color: #e8e8e8;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
   h1 {
+    color: white;
+    font-weight: bold;
+    margin: 30px;
   }
   span {
     color: #fb6f91;
     align-self: flex-start;
+    text-align: center;
     margin: 0 0 10px;
     font-weight: bold;
   }
@@ -46,7 +49,8 @@ export const FormStyle = styled(Form)`
 `;
 
 export const InputStyle = styled(Input)`
-  background: rgba(0, 0, 0, 0.1);
+  background: #2f2f2f;
+  width: 400px;
   border: 0;
   border-radius: 4px;
   height: 44px;

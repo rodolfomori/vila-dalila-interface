@@ -1,63 +1,45 @@
-import React from 'react';
-import * as Yup from 'yup';
-import { toast } from 'react-toastify';
-import history from '../../services/history';
+import React, { useState, useEffect } from 'react';
 
-import { Container, FormStyle, InputStyle } from './styles';
+import { Container, LinkPublisher, LinkGroup } from './styles';
 import api from '../../services/api';
 
-const schema = Yup.object().shape({
-  leader: Yup.string('Insira um nome válido').required(
-    'É Obrigatório adicionar um dirigente para o grupo'
-  ),
-  assistant: Yup.string('Insira um nome válido').required(
-    'É Obrigatório adicionar um ajudante para o grupo'
-  ),
-  number: Yup.number('msg').required('msg'),
-});
-
-async function handleSubmit(data) {
-  try {
-    const response = await api.post('groups', data);
-    if (response && response.status === 200) {
-      toast.success('Grupo Cadastrado com Sucesso');
-      setTimeout(() => {
-        history.push('/home');
-      }, 3000);
-    } else {
-      toast.error('Falha ao Criar o Grupo');
-    }
-  } catch (error) {
-    toast.error('Falha ao Criar o Grupo');
-  }
-}
-
 export default function Groups() {
+  const [groups, setGroups] = useState();
+  const [loading, SetLoading] = useState(false);
+
+  useEffect(() => {
+    async function getData() {
+      try {
+        const response = await api.get(`groups`);
+
+        console.log(response.data);
+        setGroups(response.data);
+      } catch (err) {
+        console.log(err);
+      }
+    }
+    getData();
+  }, []);
+
   return (
     <Container>
-      <h1>Inserir Novo Grupo</h1>
-
-      <FormStyle schema={schema} onSubmit={handleSubmit}>
-        <div>
-          <InputStyle
-            name="number"
-            type="number"
-            placeholder="Número do Grupo"
-          />
-          <InputStyle
-            name="leader"
-            type="text"
-            placeholder="Dirigente do Grupo"
-          />
-          <InputStyle
-            name="assistant"
-            type="text"
-            placeholder="Assistente do Grupo"
-          />
-
-          <button type="submit">Criar Grupo</button>
-        </div>
-      </FormStyle>
+      {groups &&
+        groups.map(group => (
+          <li key={group.id}>
+            <LinkGroup to={`/groups/${group.id}/edit`}>
+              Grupo {group.number} - {group.leader}
+            </LinkGroup>
+            {/* encodeURIComponent */}
+            {group.publishers.map(publisher => (
+              <li key={publisher.id}>
+                <LinkPublisher to={`/publishers/${publisher.id}/edit`}>
+                  {publisher.name}{' '}
+                </LinkPublisher>
+              </li>
+            ))}
+            :
+          </li>
+        ))}
     </Container>
   );
 }

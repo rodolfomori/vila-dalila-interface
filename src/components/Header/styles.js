@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Dropdown } from 'react-bootstrap';
 
 export const Container = styled.div`
   background: #fff;
@@ -6,6 +7,9 @@ export const Container = styled.div`
 `;
 
 export const Content = styled.div`
+  @media (max-width: 600px) {
+    display: none;
+  }
   height: 64px;
   max-width: 900px;
   margin: 0 auto;
@@ -23,6 +27,15 @@ export const Content = styled.div`
     a {
       font-weight: bold;
       color: #7159c1;
+      padding: 10px;
+    }
+    a:hover {
+      background-color: #7159c1;
+      font-weight: bold;
+      color: white;
+      padding: 10px;
+      border-radius: 4px;
+      text-decoration: none;
     }
   }
   aside {
@@ -54,5 +67,47 @@ export const Profile = styled.div`
     width: 32px;
     height: 32px;
     border-radius: 50%;
+  }
+`;
+
+export const Button = styled.button`
+  @media (min-width: 600px) {
+    display: none;
+  }
+  height: 64px;
+`;
+
+export const DropdownButton = styled(Dropdown)`
+  .dropdown {
+    background-color: white;
+    font-weight: bold;
+    color: #7159c1;
+    border: none;
+    &:hover {
+      outline: none;
+      background-color: #7159c1;
+      font-weight: bold;
+      color: white;
+      border: none;
+    }
+  }
+
+  /* .dropdown-item {
+    outline: none;
+    background-color: #7159c1;
+    font-weight: bold;
+    color: white;
+    border: none;
+  } */
+
+  .btn-primary.focus,
+  .btn-primary:focus {
+    background-color: #7159c1;
+    font-weight: bold;
+    color: white;
+  }
+  .dropdown-toggle::after {
+    outline: none;
+    display: none;
   }
 `;

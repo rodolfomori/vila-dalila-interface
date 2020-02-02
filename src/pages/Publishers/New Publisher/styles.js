@@ -1,18 +1,22 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
-import { Form, Input } from '@rocketseat/unform';
+import { Form, Input, Check } from '@rocketseat/unform';
 
 export const Container = styled.div`
   height: 100%;
-  background-color: #e8e8e8;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-
+  h1 {
+    color: white;
+    font-weight: bold;
+    margin: 30px;
+  }
   span {
     color: #fb6f91;
     align-self: flex-start;
+    text-align: center;
     margin: 0 0 10px;
     font-weight: bold;
   }
@@ -24,7 +28,7 @@ export const Container = styled.div`
     color: #fff;
     border: 0;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 16px
     transition: background 0.2s;
     &:hover {
       background: ${darken(0.03, '#3b9eff')};
@@ -34,7 +38,20 @@ export const Container = styled.div`
   div {
     display: flex;
     flex-direction: column;
+
     margin: 10px;
+  }
+
+  .checks{
+    display: flex;
+    flex-direction: row;
+
+    p{
+      font-size:20px;
+      color:white;
+      margin:0;
+      margin-left:20px;
+    }
   }
 `;
 
@@ -45,7 +62,8 @@ export const FormStyle = styled(Form)`
 `;
 
 export const InputStyle = styled(Input)`
-  background: rgba(0, 0, 0, 0.1);
+  background: #2f2f2f;
+  width: 400px;
   border: 0;
   border-radius: 4px;
   height: 44px;
@@ -55,4 +73,8 @@ export const InputStyle = styled(Input)`
   &::placeholder {
     color: rgba(255, 255, 255, 0.7);
   }
+`;
+
+export const CheckStyle = styled(Check)`
+  font-size: 100px;
 `;

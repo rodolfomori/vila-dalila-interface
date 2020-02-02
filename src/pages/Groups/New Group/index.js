@@ -13,7 +13,7 @@ const schema = Yup.object().shape({
   assistant: Yup.string('Insira um nome válido').required(
     'É Obrigatório adicionar um ajudante para o grupo'
   ),
-  number: Yup.number('msg').required('msg'),
+  // number: Yup.number('msg').required('msg'),
 });
 
 async function handleSubmit(data) {
@@ -35,7 +35,7 @@ async function handleSubmit(data) {
 export default function NewGroups() {
   return (
     <Container>
-      <h1>Inserir Grupo</h1>
+      <h1>Inserir Novo Grupo</h1>
 
       <FormStyle schema={schema} onSubmit={handleSubmit}>
         <div>

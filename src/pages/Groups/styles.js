@@ -1,59 +1,80 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 import { Form, Input } from '@rocketseat/unform';
+import { Link } from 'react-router-dom';
+import React from 'react';
 
-export const Container = styled.div`
-  height: 100%;
-  background-color: #e8e8e8;
-  display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  flex-direction: column;
-  h1 {
-  }
-  span {
-    color: #fb6f91;
-    align-self: flex-start;
-    margin: 0 0 10px;
-    font-weight: bold;
-  }
-  button {
-    margin: 5px 0 0;
-    height: 44px;
-    background: #3b9eff;
-    font-weight: bold;
-    color: #fff;
-    border: 0;
-    border-radius: 4px;
-    font-size: 16px;
-    transition: background 0.2s;
-    &:hover {
-      background: ${darken(0.03, '#3b9eff')};
-    }
-  }
-
-  div {
+export const Container = styled.ul`
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-gap: 20px;
+  list-style: none;
+  margin:40px;
+  li {
     display: flex;
     flex-direction: column;
-    margin: 10px;
+    background: #fff;
+    border-radius: 4px;
+    padding-top:8px;
+    padding-bottom:8px;
+    > strong {
+      font-size: 16px;
+      line-height: 20px;
+      color: #333;
+      margin-top: 5px;
+    }
+    > span {
+      font-size: 18px;
+      font-weight: bold;
+    }
+      span {
+        flex: 1;
+        text-align: center;
+        font-weight: bold;
+      }
+    }
   }
 `;
 
-export const FormStyle = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
+export const LinkPublisher = styled(Link)`
+  font-size: 17px;
+
+  color: black;
+  font-weight: bold;
+  text-align: center;
+
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  &:hover {
+    font-size: 21px;
+    transition: 0.4s;
+  }
 `;
 
-export const InputStyle = styled(Input)`
-  background: rgba(0, 0, 0, 0.1);
-  border: 0;
-  border-radius: 4px;
-  height: 44px;
-  padding: 0 15px;
-  color: #fff;
-  margin: 0 0 10px;
-  &::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+export const LinkGroup = styled(Link)`
+  font-size: 25px;
+  margin-bottom: 20px;
+  color: black;
+  font-weight: bold;
+  text-align: center;
+
+  text-decoration: none;
+
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  &:hover {
+    font-size: 23px;
+    transition: 0.4s;
   }
 `;
