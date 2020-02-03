@@ -24,7 +24,11 @@ export default function SignIn() {
 
   return (
     <>
-      <img src={logo} alt="logo" style={{ width: '250px' }} />
+      <img
+        src={logo}
+        alt="logo"
+        style={{ width: '250px', marginTop: '100px' }}
+      />
 
       <Form schema={schema} onSubmit={handleSubmit}>
         <Input name="email" type="email" placeholder="Seu e-mail" />

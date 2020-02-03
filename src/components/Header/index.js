@@ -2,8 +2,16 @@ import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 import CheeseburgerMenu from 'cheeseburger-menu';
-import { Container, Content, Profile, Button, DropdownButton } from './styles';
+import {
+  Container,
+  Content,
+  Profile,
+  Button,
+  DropdownButton,
+  Home,
+} from './styles';
 
+import logo from '../../assets/vila-dalila-logo.svg';
 import { signOut } from '../../store/modules/auth/actions';
 
 export default function Header() {
@@ -37,6 +45,15 @@ export default function Header() {
       <Button onClick={() => setOpen(!open)}>Fechar</Button>
 
       <Content>
+        <aside>
+          <Home>
+            <div>
+              <Link to="/">
+                <img src={logo} alt="logo" style={{ width: '50px' }} />
+              </Link>
+            </div>
+          </Home>
+        </aside>
         <nav>
           <Link to="/Assistance">Assistência</Link>
         </nav>

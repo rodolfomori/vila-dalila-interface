@@ -31,6 +31,7 @@ export default function Profile() {
   const dispatch = useDispatch();
   const profile = useSelector(state => state.user.profile);
 
+  console.log(profile);
   function handleSubmit(data) {
     dispatch(updateProfileRequest(data));
   }

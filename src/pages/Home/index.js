@@ -1,7 +1,14 @@
 import React from 'react';
+import { useSelector } from 'react-redux';
 
-// import { Container } from './styles';
+import { Container } from './styles';
 
 export default function Home() {
-  return <h1>Home</h1>;
+  const { profile } = useSelector(state => state.user);
+
+  return (
+    <Container>
+      <h1>Bem-Vindo {profile.name}</h1>;
+    </Container>
+  );
 }

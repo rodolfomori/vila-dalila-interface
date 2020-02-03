@@ -12,6 +12,7 @@ const schema = Yup.object().shape({
   elder: Yup.boolean(),
   ministerial_servant: Yup.boolean(),
   pioneer: Yup.boolean(),
+  baptized: Yup.boolean(),
   // number: Yup.number('msg').required('msg'),
 });
 
@@ -82,7 +83,7 @@ export default function EditPublisher(props) {
             <p>Pioneiro</p>
           </div>
           <div className="checks">
-            <CheckStyle name="batized" />
+            <CheckStyle name="baptized" />
             <p>Batizado</p>
           </div>
           <button type="submit">Editar Publicador</button>

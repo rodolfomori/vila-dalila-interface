@@ -29,7 +29,6 @@ export default function Groups() {
             <LinkGroup to={`/groups/${group.id}/edit`}>
               Grupo {group.number} - {group.leader}
             </LinkGroup>
-            {/* encodeURIComponent */}
             {group.publishers.map(publisher => (
               <li key={publisher.id}>
                 <LinkPublisher to={`/publishers/${publisher.id}/edit`}>
@@ -37,7 +36,6 @@ export default function Groups() {
                 </LinkPublisher>
               </li>
             ))}
-            :
           </li>
         ))}
     </Container>

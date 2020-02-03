@@ -28,6 +28,7 @@ export const Content = styled.div`
       font-weight: bold;
       color: #7159c1;
       padding: 10px;
+      font-size: 16px;
     }
     a:hover {
       background-color: #7159c1;
@@ -63,10 +64,26 @@ export const Profile = styled.div`
       color: #999;
     }
   }
-  img {
-    width: 32px;
-    height: 32px;
-    border-radius: 50%;
+`;
+
+export const Home = styled.div`
+  display: flex;
+  margin-left: 20px;
+  padding-left: 20px;
+  border-right: 1px solid #eee;
+  div {
+    text-align: right;
+    margin-right: 10px;
+    strong {
+      display: block;
+      color: #333;
+    }
+    a {
+      display: block;
+      margin-top: 2px;
+      font-size: 12px;
+      color: #999;
+    }
   }
 `;
 
