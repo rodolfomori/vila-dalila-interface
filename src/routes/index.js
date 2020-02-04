@@ -29,7 +29,11 @@ export default function Routes() {
       <Route path="/groups/:id/edit" component={EditGroup} isPrivate />
       <Route path="/groups" component={Groups} isPrivate />
 
-      <Route path="/assistance" component={Assistance} isPrivate />
+      <Route
+        path="/assistance/meeting/:meeting_id/group/:group_id"
+        component={Assistance}
+        isPrivate
+      />
 
       {/* <Route path="/publishers" component={Publishers} isPrivate /> */}
       <Route path="/publishers/new" component={NewPublisher} isPrivate />

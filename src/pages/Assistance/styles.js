@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { Check } from '@rocketseat/unform';
+import { Check, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
 import React from 'react';
 import { darken } from 'polished';
