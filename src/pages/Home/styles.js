@@ -9,6 +9,28 @@ export const Container = styled.div`
     font-weight: bold;
     margin-top: 30px;
   }
+  li {
+    margin-top: 30px;
+  }
+  text-align: center;
 `;
 
-export const LinkMeeting = styled(Link)``;
+export const LinkMeeting = styled(Link)`
+  color: white;
+  font-size: 28px;
+  font-weight: bold;
+  text-align: center;
+
+  text-decoration: none;
+  &:focus,
+  &:hover,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+  }
+  &:hover {
+    font-size: 30px;
+    transition: 0.5s;
+  }
+`;

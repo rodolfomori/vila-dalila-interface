@@ -16,13 +16,18 @@ export default function Home() {
       try {
         const response = await api.get(`meetings`);
 
-        // console.log(response.data);
+        console.log(response.data);
+
+        if (response.data.length > 2) {
+          response.data = response.data.slice(-2);
+        }
 
         const dateFormatted = response.data.map(data => {
           const newDate = { ...data };
-          newDate.date = format(parseISO(data.date), "'Dia' dd 'de' MMMM'", {
+          newDate.date = format(parseISO(data.date), "EEEE dd 'de' MMMM'", {
             locale: pt,
           });
+
           return newDate;
         });
 

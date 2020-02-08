@@ -36,7 +36,6 @@ export function* signUP({ payload }) {
       name,
       email,
       password,
-      provider: true,
     });
 
     history.push('/');

@@ -75,6 +75,9 @@ export default function Header() {
           <Link to="/publishers/new">Publicadores</Link>
         </nav>
         <nav>
+          <Link to="/territories">Territórios</Link>
+        </nav>
+        <nav>
           <Link to="/settings">Configurações</Link>
         </nav>
 

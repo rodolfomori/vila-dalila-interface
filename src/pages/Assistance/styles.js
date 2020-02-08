@@ -1,15 +1,19 @@
 import styled from 'styled-components';
 import { Check, Input } from '@rocketseat/unform';
 import { Link } from 'react-router-dom';
-import React from 'react';
 import { darken } from 'polished';
 
 export const Container = styled.ul`
-  display: grid;
+  /* display: grid;
   grid-template-columns: repeat(3, 1fr);
-  grid-gap: 20px;
+  grid-gap: 20px; */
+
   list-style: none;
-  margin:40px;
+  max-width:400px;
+    margin:auto;
+    padding:20px;
+
+
   button {
     width:100%;
       margin: 5px 0 0;
@@ -72,7 +76,9 @@ export const Group = styled.text`
   text-align: center;
 `;
 
-export const CheckPublishers = styled(Check)`
+export const CheckPublishers = styled(Input)`
   font-size: 100px;
   margin-left: 20px;
 `;
+
+export const Teste = styled.input``;

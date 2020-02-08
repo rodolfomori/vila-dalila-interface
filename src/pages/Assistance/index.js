@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Form } from '@rocketseat/unform';
+import { toast } from 'react-toastify';
+import history from '../../services/history';
 
-import { compose } from 'redux';
 import { Container, Publisher, Group, CheckPublishers } from './styles';
 import api from '../../services/api';
 
@@ -13,22 +14,32 @@ export default function Assistance(props) {
 
   const myGroup = useSelector(state => state.user.profile.publisher.group_id);
 
-  async function handleSubmit(data) {
-    console.log(data);
-    Object.filter = (obj, predicate) =>
-      Object.assign(
-        ...Object.keys(obj)
-          .filter(key => predicate(obj[key]))
-          .map(key => ({ [key]: obj[key] }))
-      );
-
-    const filtered = Object.filter(data, pub => pub);
-
-    const pubs = Object.keys(filtered).map(pub => Number(pub));
-
-    await api.put(`assistance/${meetingID}`, {
-      present_publishers: data,
+  function handleChange(event) {
+    const pubs = meetingAssistance;
+    pubs.forEach(element => {
+      element.id == event.target.name &&
+        (element.present = event.target.checked);
     });
+
+    setMeetingAssistance(pubs);
+  }
+  async function handleSubmit() {
+    try {
+      const response = await api.put(`assistance/${meetingID}`, {
+        assistance: meetingAssistance,
+      });
+      if (response && response.status === 200) {
+        toast.success('Assistência registrada com Sucesso');
+        setTimeout(() => {
+          history.push('/home');
+        }, 3000);
+      } else {
+        toast.error('Falha ao Registrar Assistência');
+      }
+    } catch (error) {
+      console.error(error);
+      toast.error('Falha ao Registrar Assistência');
+    }
   }
 
   useEffect(() => {
@@ -38,13 +49,13 @@ export default function Assistance(props) {
           `/assistance/meeting/${meetingID}/group/${myGroup}`
         );
         setMeetingAssistance(response.data);
-        console.log(response.data);
       } catch (err) {
-        console.log(err);
+        console.error(err);
       }
     }
     getData();
-  }, [loading, meetingID, myGroup]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container>
@@ -53,13 +64,13 @@ export default function Assistance(props) {
           <li key={meetingAssistance.id}>
             <Group>Grupo {myGroup}</Group>
             {meetingAssistance.map(pub => (
-              <li key={pub.publisher.id} className="pubs">
+              <li key={pub.id} className="pubs">
                 <CheckPublishers
-                  name={pub.publisher.id.toString()}
+                  name={pub.id.toString()}
                   defaultChecked={pub.present}
-                  value={pub.publisher.id}
+                  value={pub.id}
                   type="checkbox"
-                  // onChange={e => setPublisher.map( value => value.pub.id = e.target.checked }
+                  onChange={handleChange}
                 />
                 <Publisher>{pub.publisher.name}</Publisher>
               </li>

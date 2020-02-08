@@ -11,6 +11,7 @@ import Assistance from '../pages/Assistance';
 import Publishers from '../pages/Publishers';
 import SettingsPage from '../pages/SettingsPage';
 import Profile from '../pages/Profile';
+import Territories from '../pages/Territories';
 import NewPublisher from '../pages/Publishers/New Publisher';
 import EditPublisher from '../pages/Publishers/Edit Publisher';
 
@@ -24,6 +25,8 @@ export default function Routes() {
       <Route path="/home" component={Home} isPrivate />
 
       <Route path="/profile" component={Profile} isPrivate />
+
+      <Route path="/territories" component={Territories} isPrivate />
 
       <Route path="/groups/new-group" component={NewGroup} isPrivate />
       <Route path="/groups/:id/edit" component={EditGroup} isPrivate />
