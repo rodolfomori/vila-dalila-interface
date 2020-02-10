@@ -12,6 +12,7 @@ export const Container = styled.div`
     color: white;
     font-weight: bold;
     margin: 30px;
+    font-size: 35px;
   }
   span {
     color: #fb6f91;

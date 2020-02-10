@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
 import CheeseburgerMenu from 'cheeseburger-menu';
+import { Link } from 'react-router-dom';
+
 import {
   Container,
   Content,
@@ -9,6 +10,10 @@ import {
   Button,
   DropdownButton,
   Home,
+  IconBar,
+  IconBack,
+  LinkStyle,
+  Menu,
 } from './styles';
 
 import logo from '../../assets/vila-dalila-logo.svg';
@@ -21,28 +26,52 @@ export default function Header() {
   const [open, setOpen] = useState(false);
 
   function handleSignOut() {
+    setOpen(false);
     dispatch(signOut());
   }
 
   return (
     <Container>
-      <CheeseburgerMenu isOpen={open} closeCallback={() => setOpen(false)}>
+      <Menu isOpen={open} closeCallback={() => setOpen(false)}>
         <div className="my-menu-content">
-          <ul>
+          <ul style={{ marginTop: '50px' }}>
             <li>
-              <Link to="/groups" onClick={() => setOpen(false)}>
-                Grupos
-              </Link>
+              <LinkStyle to="/" onClick={() => setOpen(false)}>
+                Home
+              </LinkStyle>
             </li>
             <li>
-              <Link to="/publishers" onClick={() => setOpen(false)}>
-                Publicadores
-              </Link>
+              <LinkStyle to="/groups" onClick={() => setOpen(false)}>
+                Grupos
+              </LinkStyle>
+            </li>
+            <li>
+              <LinkStyle to="/profile" onClick={() => setOpen(false)}>
+                Meu Perfil
+              </LinkStyle>
+            </li>
+            <li>
+              <LinkStyle
+                to="/profile"
+                onClick={handleSignOut}
+                style={{
+                  position: 'fixed',
+                  bottom: '20px',
+                  color: '#B22222',
+                  fontSize: '30px',
+                  textDecoration: 'none',
+                }}
+              >
+                Sair
+              </LinkStyle>
             </li>
           </ul>
         </div>
-      </CheeseburgerMenu>
-      <Button onClick={() => setOpen(!open)}>Fechar</Button>
+        <IconBack onClick={() => setOpen(false)} />
+      </Menu>
+      <Button onClick={() => setOpen(!open)}>
+        <IconBar />
+      </Button>
 
       <Content>
         <aside>
@@ -57,22 +86,8 @@ export default function Header() {
         <nav>
           <Link to="/Assistance">Assistência</Link>
         </nav>
-        <DropdownButton className="dropdown">
-          <DropdownButton.Toggle id="dropdown-basic" className="dropdown">
-            Grupos
-          </DropdownButton.Toggle>
-
-          <DropdownButton.Menu>
-            <DropdownButton.Item>
-              <Link to="/Groups">Grupos</Link>
-            </DropdownButton.Item>
-            <DropdownButton.Item>
-              <Link to="/groups/new-group">Novo Grupo</Link>
-            </DropdownButton.Item>
-          </DropdownButton.Menu>
-        </DropdownButton>
         <nav>
-          <Link to="/publishers/new">Publicadores</Link>
+          <Link to="/groups">Grupos</Link>
         </nav>
         <nav>
           <Link to="/territories">Territórios</Link>

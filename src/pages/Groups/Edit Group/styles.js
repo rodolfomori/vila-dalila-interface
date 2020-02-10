@@ -3,11 +3,19 @@ import { darken } from 'polished';
 import { Form, Input } from '@rocketseat/unform';
 
 export const Container = styled.div`
+  @media (max-width: 600px) {
+    margin: auto;
+  }
+
   height: 100%;
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
+  max-width: 100%;
+
+  @media (min-width: 600px) {
+    align-content: center;
+    align-items: center;
+  }
   h1 {
     color: white;
     font-weight: bold;
@@ -60,4 +68,6 @@ export const InputStyle = styled(Input)`
   &::placeholder {
     color: rgba(255, 255, 255, 0.7);
   }
+  @media (max-width: 600px) {
+    max-width: 100%;
 `;

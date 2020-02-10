@@ -17,16 +17,11 @@ const schema = Yup.object().shape({
 });
 
 async function handleSubmit(data) {
+  console.log(data);
+
   try {
-    const response = await api.post('groups', data);
-    if (response && response.status === 200) {
-      toast.success('Grupo Cadastrado com Sucesso');
-      setTimeout(() => {
-        history.push('/home');
-      }, 3000);
-    } else {
-      toast.error('Falha ao Criar o Grupo');
-    }
+    await api.post('groups', data);
+    toast.success('Grupo Cadastrado com Sucesso');
   } catch (error) {
     toast.error('Falha ao Criar o Grupo');
   }
@@ -37,7 +32,7 @@ export default function NewGroups() {
     <Container>
       <h1>Inserir Novo Grupo</h1>
 
-      <FormStyle schema={schema} onSubmit={handleSubmit}>
+      <FormStyle onSubmit={handleSubmit}>
         <div>
           <InputStyle
             name="number"

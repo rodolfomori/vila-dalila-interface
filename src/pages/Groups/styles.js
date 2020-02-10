@@ -5,6 +5,10 @@ import { Link } from 'react-router-dom';
 import React from 'react';
 
 export const Container = styled.ul`
+ @media (max-width: 600px) {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  }
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   grid-gap: 20px;

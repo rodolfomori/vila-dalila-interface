@@ -16,8 +16,6 @@ export default function Home() {
       try {
         const response = await api.get(`meetings`);
 
-        console.log(response.data);
-
         if (response.data.length > 2) {
           response.data = response.data.slice(-2);
         }
@@ -37,7 +35,6 @@ export default function Home() {
       }
     }
     getData();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

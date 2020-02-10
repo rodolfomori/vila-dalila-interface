@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 import history from '../../../services/history';
 
 import { Container, FormStyle, InputStyle, CheckStyle } from './styles';
@@ -16,40 +17,42 @@ const schema = Yup.object().shape({
   // number: Yup.number('msg').required('msg'),
 });
 
-async function handleSubmit(data) {
-  console.log(data);
-
-  try {
-    const response = await api.post('publishers', data);
-    if (response && response.status === 200) {
-      toast.success('Grupo Cadastrado com Sucesso');
-      setTimeout(() => {
-        history.push('/home');
-      }, 3000);
-    } else {
-      toast.error('Falha ao Criar o Grupo');
-    }
-  } catch (error) {
-    toast.error('Falha ao Criar o Grupo');
-  }
-}
-
 export default function EditPublisher(props) {
+  const [admin, setAdmin] = useState(false);
   const [publisher, setPublisher] = useState();
+
+  const adm = useSelector(state => state.user.profile.admin);
 
   useEffect(() => {
     async function getData() {
       const { id } = props.match.params;
+
       try {
         const response = await api.get(`publishers/${id}`);
         setPublisher(response.data);
-        console.log(response);
+        (await adm) && setAdmin(adm);
       } catch (err) {
         console.log(err);
       }
     }
     getData();
-  }, [props]);
+  }, [adm, props.match.params]);
+
+  async function handleSubmit(data) {
+    try {
+      const response = await api.post('publishers', data);
+      if (response && response.status === 200) {
+        toast.success('Grupo Cadastrado com Sucesso');
+        setTimeout(() => {
+          history.push('/home');
+        }, 3000);
+      } else {
+        toast.error('Falha ao Criar o Grupo');
+      }
+    } catch (error) {
+      toast.error('Falha ao Criar o Grupo');
+    }
+  }
 
   return (
     <Container>
@@ -72,21 +75,21 @@ export default function EditPublisher(props) {
             placeholder="Grupo do Publicador"
           />
           <div className="checks">
-            <CheckStyle name="elder" /> <p>Ancião</p>
+            <CheckStyle disabled={!admin} name="elder" /> <p>Ancião</p>
           </div>
           <div className="checks">
-            <CheckStyle name="ministerial_servant" />
+            <CheckStyle disabled={!admin} name="ministerial_servant" />
             <p>Servo Ministerial</p>
           </div>
           <div className="checks">
-            <CheckStyle name="pioneer" />
+            <CheckStyle disabled={!admin} name="pioneer" />
             <p>Pioneiro</p>
           </div>
           <div className="checks">
-            <CheckStyle name="baptized" />
+            <CheckStyle disabled={!admin} name="baptized" />
             <p>Batizado</p>
           </div>
-          <button type="submit">Editar Publicador</button>
+          {admin && <button type="submit">Editar Publicador</button>}
         </div>
       </FormStyle>
     </Container>

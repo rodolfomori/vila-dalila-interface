@@ -12,7 +12,6 @@ export default function Groups() {
       try {
         const response = await api.get(`groups`);
 
-        console.log(response.data);
         setGroups(response.data);
       } catch (err) {
         console.log(err);

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import * as Yup from 'yup';
 import { toast } from 'react-toastify';
+import { useSelector } from 'react-redux';
 import history from '../../../services/history';
 
 import { Container, FormStyle, InputStyle } from './styles';
@@ -34,6 +35,9 @@ async function handleSubmit(data) {
 
 export default function NewGroups(props) {
   const [groups, setGroups] = useState();
+  const [admin, setAdmin] = useState(false);
+
+  const adm = useSelector(state => state.user.profile.admin);
 
   useEffect(() => {
     async function getData() {
@@ -41,13 +45,13 @@ export default function NewGroups(props) {
       try {
         const response = await api.get(`groups/${id}`);
         setGroups(response.data);
-        console.log(response);
+        (await adm) && setAdmin(adm);
       } catch (err) {
         console.log(err);
       }
     }
     getData();
-  }, [props]);
+  }, [adm, props]);
 
   return (
     <Container>
@@ -59,19 +63,22 @@ export default function NewGroups(props) {
             name="number"
             type="number"
             placeholder="Número do Grupo"
+            disabled={!admin}
           />
           <InputStyle
             name="leader"
             type="text"
             placeholder="Dirigente do Grupo"
+            disabled={!admin}
           />
           <InputStyle
             name="assistant"
             type="text"
             placeholder="Assistente do Grupo"
+            disabled={!admin}
           />
 
-          <button type="submit">Editar Grupo</button>
+          {admin && <button type="submit">Editar Grupo</button>}
         </div>
       </FormStyle>
     </Container>

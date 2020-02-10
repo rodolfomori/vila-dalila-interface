@@ -16,7 +16,6 @@ export function* signIn({ payload }) {
     });
 
     const { token, user } = response.data;
-
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(singInSuccess(token, user));
@@ -31,14 +30,17 @@ export function* signIn({ payload }) {
 
 export function* signUP({ payload }) {
   try {
-    const { name, email, password } = payload;
+    const { name, email, password, publisher_id, admin = false } = payload;
+
     yield call(api.post, 'users', {
       name,
       email,
       password,
+      publisher_id,
+      admin,
     });
 
-    history.push('/');
+    toast.sucess('Usuário Cadastrado com sucesso!');
   } catch (err) {
     toast.error('Falha no cadastro, verifique seus dados');
 

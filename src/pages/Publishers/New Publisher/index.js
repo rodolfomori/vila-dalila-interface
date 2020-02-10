@@ -16,8 +16,6 @@ const schema = Yup.object().shape({
 });
 
 async function handleSubmit(data) {
-  console.log(data);
-
   try {
     const response = await api.post('publishers', data);
     if (response && response.status === 200) {

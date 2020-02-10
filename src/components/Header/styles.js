@@ -1,9 +1,39 @@
 import styled from 'styled-components';
 import { Dropdown } from 'react-bootstrap';
+import { FaBars, FaChevronCircleLeft } from 'react-icons/fa';
+import CheeseburgerMenu from 'cheeseburger-menu';
+import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   background: #fff;
   padding: 0 30px;
+`;
+
+export const Menu = styled(CheeseburgerMenu)`
+  display: grid;
+  grid-template-columns: 80% 20%;
+
+  li {
+    font-size: 20px;
+    color: black;
+    margin: 20px;
+    font-weight: bold;
+  }
+`;
+
+export const IconBar = styled(FaBars)`
+  font-size: 24px;
+`;
+
+export const IconBack = styled(FaChevronCircleLeft)`
+  float: right;
+  margin-right: 10px;
+  font-size: 30px;
+  margin-top: -45px;
+  position: fixed;
+  top: 60px;
+  left: 250px;
+  color: #3b9eff;
 `;
 
 export const Content = styled.div`
@@ -127,4 +157,8 @@ export const DropdownButton = styled(Dropdown)`
     outline: none;
     display: none;
   }
+`;
+
+export const LinkStyle = styled(Link)`
+  color: inherit;
 `;

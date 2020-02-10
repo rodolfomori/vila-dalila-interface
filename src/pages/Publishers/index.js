@@ -11,7 +11,6 @@ export default function Publishers() {
       try {
         const response = await api.get(`publishers`);
 
-        console.log(response.data);
         setPublishers(response.data);
       } catch (err) {
         console.log(err);
