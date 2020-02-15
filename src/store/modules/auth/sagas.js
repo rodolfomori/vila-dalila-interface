@@ -10,7 +10,7 @@ export function* signIn({ payload }) {
   try {
     const { email, password } = payload;
 
-    const response = yield call(api.post, {
+    const response = yield call(api.post, '', {
       email,
       password,
     });
