@@ -10,6 +10,7 @@ export default function Publishers() {
     async function getData() {
       try {
         const response = await api.get(`publishers`);
+        console.log(response);
 
         setPublishers(response.data);
       } catch (err) {

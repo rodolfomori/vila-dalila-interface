@@ -16,6 +16,8 @@ export default function Home() {
       try {
         const response = await api.get(`meetings`);
 
+        console.log(response);
+
         if (response.data.length > 2) {
           response.data = response.data.slice(-2);
         }
