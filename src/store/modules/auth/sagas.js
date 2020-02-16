@@ -16,9 +16,10 @@ export function* signIn({ payload }) {
     });
 
     const { token, user } = response.data;
-    api.defaults.headers.Authorization = `Bearer ${token}`;
+    // api.defaults.headers.Authorization = `Bearer ${token}`;
 
-    yield put(singInSuccess(token, user));
+    // yield put(singInSuccess(token, user));
+    yield put(singInSuccess(user));
 
     history.push('/home');
   } catch (err) {
@@ -48,22 +49,22 @@ export function* signUP({ payload }) {
   }
 }
 
-export function setToken({ payload }) {
-  if (!payload) return;
+// export function setToken({ payload }) {
+//   if (!payload) return;
 
-  const { token } = payload.auth;
+//   const { token } = payload.auth;
 
-  if (token) {
-    api.defaults.headers.Authorization = `Bearer ${token}`;
-  }
-}
+//   if (token) {
+//     api.defaults.headers.Authorization = `Bearer ${token}`;
+//   }
+// }
 
 export function signOut() {
   history.push('/');
 }
 
 export default all([
-  takeLatest('persist/REHYDRATE', setToken),
+  // takeLatest('persist/REHYDRATE', setToken),
   takeLatest('@auth/SIGN_IN_REQUEST', signIn),
   takeLatest('@auth/SIGN_UP_REQUEST', signUP),
   takeLatest('@auth/SIGN_OUT', signOut),
