@@ -68,11 +68,13 @@ export default function EditPublisher(props) {
             name="name"
             type="text"
             placeholder="Nome do Publicador"
+            disabled={!admin}
           />
           <InputStyle
             name="group_id"
             type="number"
             placeholder="Grupo do Publicador"
+            disabled={!admin}
           />
           <div className="checks">
             <CheckStyle disabled={!admin} name="elder" /> <p>Ancião</p>

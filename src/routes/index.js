@@ -14,6 +14,8 @@ import Profile from '../pages/Profile';
 import Territories from '../pages/Territories';
 import NewPublisher from '../pages/Publishers/New Publisher';
 import EditPublisher from '../pages/Publishers/Edit Publisher';
+import AllAssistances from '../pages/Assistance/All Assistances';
+import AllGroups from '../pages/Assistance/All Groups';
 
 import Route from './Route';
 
@@ -37,6 +39,8 @@ export default function Routes() {
         component={Assistance}
         isPrivate
       />
+      <Route path="/assistance" component={AllAssistances} isPrivate />
+      <Route path="/allgroups/:meeting_id" component={AllGroups} isPrivate />
 
       {/* <Route path="/publishers" component={Publishers} isPrivate /> */}
       <Route path="/publishers/new" component={NewPublisher} isPrivate />

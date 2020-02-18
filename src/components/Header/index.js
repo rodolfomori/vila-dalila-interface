@@ -41,6 +41,16 @@ export default function Header() {
               </LinkStyle>
             </li>
             <li>
+              <LinkStyle to="/assistance" onClick={() => setOpen(false)}>
+                Assistência
+              </LinkStyle>
+            </li>
+            <li>
+              <LinkStyle to="/territories" onClick={() => setOpen(false)}>
+                Territórios
+              </LinkStyle>
+            </li>
+            <li>
               <LinkStyle to="/groups" onClick={() => setOpen(false)}>
                 Grupos
               </LinkStyle>
@@ -84,7 +94,7 @@ export default function Header() {
           </Home>
         </aside>
         <nav>
-          <Link to="/Assistance">Assistência</Link>
+          <Link to="/assistance">Assistência</Link>
         </nav>
         <nav>
           <Link to="/groups">Grupos</Link>

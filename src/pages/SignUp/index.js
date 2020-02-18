@@ -55,7 +55,7 @@ export default function SignUp() {
       return;
     }
     try {
-      await api.post('users', {
+      const response = await api.post('users', {
         name,
         email,
         password,
@@ -63,6 +63,8 @@ export default function SignUp() {
         admin,
         publisher_id: selectPub.id,
       });
+
+      console.log(response);
 
       toast.success('Usuário Cadastrado com sucesso!');
     } catch (err) {
