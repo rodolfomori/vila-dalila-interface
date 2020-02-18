@@ -20,6 +20,7 @@ import logo from '../../assets/vila-dalila-logo.svg';
 import { signOut } from '../../store/modules/auth/actions';
 
 export default function Header() {
+  const admin = useSelector(state => state.user.profile.admin);
   const dispatch = useDispatch();
 
   const { profile } = useSelector(state => state.user);
@@ -55,6 +56,13 @@ export default function Header() {
                 Grupos
               </LinkStyle>
             </li>
+
+            <li>
+              <LinkStyle to="/settings" onClick={() => setOpen(false)}>
+                Configurações
+              </LinkStyle>
+            </li>
+
             <li>
               <LinkStyle to="/profile" onClick={() => setOpen(false)}>
                 Meu Perfil
@@ -102,9 +110,11 @@ export default function Header() {
         <nav>
           <Link to="/territories">Territórios</Link>
         </nav>
-        <nav>
-          <Link to="/settings">Configurações</Link>
-        </nav>
+        {admin && (
+          <nav>
+            <Link to="/settings">Configurações</Link>
+          </nav>
+        )}
 
         <aside>
           <Profile>
