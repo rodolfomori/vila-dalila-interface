@@ -10,9 +10,14 @@ import api from '../../services/api';
 export default function Assistance(props) {
   const [meetingAssistance, setMeetingAssistance] = useState();
   const [loading, setLoading] = useState(false);
-  const [meetingID, setMeetingID] = useState(props.match.params.meeting_id);
 
-  const myGroup = useSelector(state => state.user.profile.publisher.group_id);
+  const meetingID = props.match.params.meeting_id;
+
+  let myGroup = useSelector(state => state.user.profile.publisher.group_id);
+
+  if (props.match.params.group_id) {
+    myGroup = props.match.params.group_id;
+  }
 
   function handleChange(event) {
     const pubs = meetingAssistance;
