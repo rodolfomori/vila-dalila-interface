@@ -4,6 +4,8 @@ import NewGroup from '../Groups/New Group';
 import NewPublisher from '../Publishers/New Publisher';
 import SignUp from '../SignUp';
 
+import isMobile from '../../utils/isMobile';
+
 import { Container, Wrapper } from './styles';
 
 export default function SettingsPage() {

@@ -1,10 +1,21 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 import { darken } from 'polished';
+
+import isMobile from '../../utils/isMobile';
+
+const mobile = isMobile.any();
 
 export const Container = styled.div`
   color: white;
   display: grid;
-  grid-template-columns: 20% 80%;
+
+  ${mobile
+    ? css`
+        grid-template-rows: 20% 80%;
+      `
+    : css`
+        grid-template-columns: 20% 80%;
+      `}
 
   a {
     font-size: 20px;
@@ -18,9 +29,6 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  @media (max-width: 600px) {
-    margin-top: 140px;
-  }
   margin-top: 30px;
   display: flex;
   justify-content: center;
