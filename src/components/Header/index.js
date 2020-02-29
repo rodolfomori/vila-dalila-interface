@@ -57,11 +57,13 @@ export default function Header() {
               </LinkStyle>
             </li>
 
-            <li>
-              <LinkStyle to="/settings" onClick={() => setOpen(false)}>
-                Configurações
-              </LinkStyle>
-            </li>
+            {admin && (
+              <li>
+                <LinkStyle to="/settings" onClick={() => setOpen(false)}>
+                  Configurações
+                </LinkStyle>
+              </li>
+            )}
 
             <li>
               <LinkStyle to="/profile" onClick={() => setOpen(false)}>

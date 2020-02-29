@@ -41,7 +41,10 @@ import terr38 from '../../assets/Territories/Territorie38.jpg';
 
 import { Container, Text } from './styles';
 
+import isMobile from '../../utils/isMobile';
+
 export default function Territories() {
+  const mobile = isMobile.any();
   const handleTarritories = [
     terr1,
     terr2,
@@ -86,7 +89,7 @@ export default function Territories() {
   return (
     <>
       <Text>Territórios</Text>;
-      <Container>
+      <Container mobile={mobile}>
         {handleTarritories.map(terr => (
           <a style={{ display: 'table-cell' }} href={terr} target="_blank">
             <img src={terr} alt={terr} />
