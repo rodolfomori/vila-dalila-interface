@@ -47,13 +47,20 @@ export default function Assistance(props) {
     }
   }
 
+  function compare(a, b) {
+    if (a.publisher.name < b.publisher.name) return -1;
+    if (a.publisher.name > b.publisher.name) return 1;
+    return 0;
+  }
+
   useEffect(() => {
     async function getData() {
       try {
         const response = await api.get(
           `/assistance/meeting/${meetingID}/group/${myGroup}`
         );
-        setMeetingAssistance(response.data);
+
+        setMeetingAssistance(response.data.sort(compare));
       } catch (err) {
         console.error(err);
       }

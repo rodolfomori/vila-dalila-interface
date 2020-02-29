@@ -11,7 +11,6 @@ export default function Groups() {
     async function getData() {
       try {
         const response = await api.get(`groups`);
-        console.log(response);
 
         setGroups(response.data);
       } catch (err) {
