@@ -4,17 +4,18 @@ import { darken } from 'polished';
 export const Wrapper = styled.div`
   height: 100%;
   /* background: linear-gradient(-90deg, #7159c1, #ab59c1); */
+  background: #1a2038;
   display: flex;
   justify-content: center;
   align-items: center;
 `;
 
 export const Content = styled.div`
-  width: 100%;
-  height: 100%;
-  max-width: 315px;
-  text-align: center;
-  form {
+  /* width: 100%;
+  height: 100%; */
+  /* max-width: 315px;
+  text-align: center; */
+  /* form {
     display: flex;
     flex-direction: column;
     margin-top: 30px;
@@ -59,5 +60,5 @@ export const Content = styled.div`
         opacity: 1;
       }
     }
-  }
+  } */
 `;

@@ -1,45 +1,111 @@
-import React from 'react';
-import { Form, Input } from '@rocketseat/unform';
+import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import * as Yup from 'yup';
 
-// import { Container } from './styles';
+import isMobile from '../../utils/isMobile';
+
+import {
+  Container,
+  CenterCard,
+  InputField,
+  SubmitButton,
+  Form,
+} from './styles';
+
 import { signInRequest } from '../../store/modules/auth/actions';
 import logo from '../../assets/vila-dalila-logo.svg';
 
-const schema = Yup.object().shape({
-  email: Yup.string()
-    .email('Insira um e-mail válido')
-    .required('O e-mail é obrigatório'),
-  password: Yup.string().required('A senha é Obrigatória'),
-});
-
 export default function SignIn() {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+
+  const mobile = isMobile.any();
   const dispatch = useDispatch();
   const loading = useSelector(state => state.auth.loading);
 
-  function handleSubmit({ email, password }) {
+  function handleSubmit() {
     dispatch(signInRequest(email, password));
   }
 
+  function handleChange(e) {
+    switch (e.target.name) {
+      case 'email':
+        setEmail(e.target.value);
+        break;
+
+      case 'password':
+        setPassword(e.target.value);
+        break;
+
+      default:
+    }
+  }
+
   return (
-    <>
-      <img
-        src={logo}
-        alt="logo"
-        style={{ width: '250px', marginTop: '100px' }}
-      />
+    <Container mobile={mobile}>
+      <CenterCard
+        style={{
+          borderTopLeftRadius: 25,
+          borderBottomLeftRadius: mobile ? 0 : 25,
+          borderBottomRightRadius: 0,
+          borderTopRightRadius: mobile ? 25 : 0,
+        }}
+      >
+        <img src={logo} alt="logo" style={{ width: '250px' }} />
+      </CenterCard>
 
-      <Form schema={schema} onSubmit={handleSubmit}>
-        <Input name="email" type="email" placeholder="Seu e-mail" />
-        <Input
-          name="password"
-          type="password"
-          placeholder="Sua senha secreta"
-        />
+      <CenterCard
+        style={{
+          borderTopLeftRadius: 0,
+          borderBottomLeftRadius: mobile ? 25 : 0,
+          borderBottomRightRadius: 25,
+          borderTopRightRadius: mobile ? 0 : 25,
+          background: '#EBEBEB',
+        }}
+      >
+        <Form
+          // schema={schema}
+          onSubmit={handleSubmit}
+          style={{
+            display: 'flex',
+            flexDirection: 'column',
+            justifyContent: 'space-evenly',
+            width: '100%',
+            alignItems: 'center',
+          }}
+        >
+          <InputField
+            id="outlined-basic"
+            label="E-mail"
+            variant="outlined"
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            validators={['required', 'isEmail']}
+            errorMessages={['this field is required', 'email is not valid']}
+          />
+          <InputField
+            id="outlined-basic"
+            label="Senha"
+            variant="outlined"
+            name="password"
+            type="password"
+            value={password}
+            onChange={handleChange}
+            validators={['required']}
+            errorMessages={['this field is required']}
+          />
 
-        <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
-      </Form>
-    </>
+          <SubmitButton
+            variant="contained"
+            color="primary"
+            style={{ background: '#7467ef', color: '#EEE' }}
+            type="submit"
+          >
+            {loading ? 'Carregando...' : 'Acessar'}
+          </SubmitButton>
+        </Form>
+      </CenterCard>
+    </Container>
   );
 }
