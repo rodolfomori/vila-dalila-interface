@@ -21,7 +21,6 @@ html,body, #root {
 }
 
 body {
-    background: #191920 url(${background}) no-repeat center top;
     -webkit-font-smoothing: antialiased;
   }
 

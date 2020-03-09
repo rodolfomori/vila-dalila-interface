@@ -8,7 +8,7 @@ import NewGroup from '../pages/Groups/New Group';
 import EditGroup from '../pages/Groups/Edit Group';
 import Groups from '../pages/Groups';
 import Assistance from '../pages/Assistance';
-import Publishers from '../pages/Publishers';
+// import Publishers from '../pages/Publishers';
 import SettingsPage from '../pages/SettingsPage';
 import Profile from '../pages/Profile';
 import Territories from '../pages/Territories';
@@ -16,6 +16,7 @@ import NewPublisher from '../pages/Publishers/New Publisher';
 import EditPublisher from '../pages/Publishers/Edit Publisher';
 import AllAssistances from '../pages/Assistance/All Assistances';
 import AllGroups from '../pages/Assistance/All Groups';
+import Privacy from '../pages/Privacy';
 
 import Route from './Route';
 
@@ -47,6 +48,8 @@ export default function Routes() {
       <Route path="/publishers/:id/edit" component={EditPublisher} isPrivate />
 
       <Route path="/settings" component={SettingsPage} isPrivate />
+
+      <Route path="/privacy" component={Privacy} />
     </Switch>
   );
 }

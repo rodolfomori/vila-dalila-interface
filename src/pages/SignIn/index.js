@@ -106,6 +106,7 @@ export default function SignIn() {
           </SubmitButton>
         </Form>
       </CenterCard>
+      <a href="/privacy">Política de Privacidade</a>
     </Container>
   );
 }
