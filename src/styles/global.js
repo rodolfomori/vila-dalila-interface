@@ -1,5 +1,6 @@
 import { createGlobalStyle } from 'styled-components';
 import 'react-toastify/dist/ReactToastify.css';
+import background from '../assets/background.svg';
 
 export default createGlobalStyle`
 @import url('https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap');
@@ -20,7 +21,8 @@ html,body, #root {
 }
 
 body {
-    -webkit-font-smoothing: antialiased;
+  /* background: #191920 url(${background}) no-repeat center top; */
+  -webkit-font-smoothing: antialiased;
   }
 
 body,input,button,h1,p{

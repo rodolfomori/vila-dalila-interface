@@ -42,3 +42,11 @@ export const SubmitButton = styled(Button)`
 `;
 
 export const Form = styled(ValidatorForm)``;
+
+export const Footer = styled.div`
+  position: fixed;
+  bottom: 10px;
+  a {
+    color: white;
+  }
+`;

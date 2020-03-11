@@ -3,6 +3,8 @@ import { Dropdown } from 'react-bootstrap';
 import { FaBars, FaChevronCircleLeft } from 'react-icons/fa';
 import CheeseburgerMenu from 'cheeseburger-menu';
 import { Link } from 'react-router-dom';
+import MenuIcon from '@material-ui/icons/Menu';
+import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 
 export const Container = styled.div`
   background: #fff;
@@ -21,7 +23,11 @@ export const Menu = styled(CheeseburgerMenu)`
   }
 `;
 
-export const IconBar = styled(FaBars)`
+export const IconBar = styled(MenuIcon)`
+  font-size: 24px;
+`;
+
+export const IconBarOpen = styled(MenuOpenIcon)`
   font-size: 24px;
 `;
 

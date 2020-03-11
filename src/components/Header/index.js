@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
-import CheeseburgerMenu from 'cheeseburger-menu';
 import { Link } from 'react-router-dom';
 
 import {
@@ -8,7 +7,7 @@ import {
   Content,
   Profile,
   Button,
-  DropdownButton,
+  IconBarOpen,
   Home,
   IconBar,
   IconBack,
@@ -90,7 +89,7 @@ export default function Header() {
         <IconBack onClick={() => setOpen(false)} />
       </Menu>
       <Button onClick={() => setOpen(!open)}>
-        <IconBar />
+        {open ? <IconBarOpen /> : <IconBar />}
       </Button>
 
       <Content>
