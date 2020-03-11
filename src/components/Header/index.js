@@ -88,9 +88,11 @@ export default function Header() {
         </div>
         <IconBack onClick={() => setOpen(false)} />
       </Menu>
-      <Button onClick={() => setOpen(!open)}>
-        {open ? <IconBarOpen /> : <IconBar />}
-      </Button>
+      {open ? (
+        <IconBarOpen onClick={() => setOpen(!open)} />
+      ) : (
+        <IconBar onClick={() => setOpen(!open)} />
+      )}
 
       <Content>
         <aside>
