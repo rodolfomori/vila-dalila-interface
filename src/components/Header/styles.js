@@ -24,10 +24,16 @@ export const Menu = styled(CheeseburgerMenu)`
 `;
 
 export const IconBar = styled(MenuIcon)`
+  @media (min-width: 600px) {
+    display: none !important;
+  }
   font-size: 24px;
 `;
 
 export const IconBarOpen = styled(MenuOpenIcon)`
+  @media (min-width: 600px) {
+    display: none !important;
+  }
   font-size: 24px;
 `;
 
@@ -121,13 +127,6 @@ export const Home = styled.div`
       color: #999;
     }
   }
-`;
-
-export const Button = styled.button`
-  @media (min-width: 600px) {
-    display: none;
-  }
-  height: 64px;
 `;
 
 export const DropdownButton = styled(Dropdown)`
