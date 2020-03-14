@@ -88,7 +88,7 @@ export default function Territories() {
 
   return (
     <>
-      <Text>Territórios</Text>;
+      <Text>Territórios</Text>
       <Container mobile={mobile}>
         {handleTarritories.map(terr => (
           <a style={{ display: 'table-cell' }} href={terr} target="_blank">

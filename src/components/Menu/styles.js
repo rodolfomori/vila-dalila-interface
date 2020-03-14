@@ -7,24 +7,18 @@ import MenuIcon from '@material-ui/icons/Menu';
 import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import { Paper } from '@material-ui/core';
 
-export const Container = styled(Paper)`
+export const Container = styled.div`
   /* background: #fff; */
-  && {
+  /* && {
     background: #3d4977;
     padding: 0 30px;
     height: 78px;
     border: 0 solid #3d4977;
     border-radius: 0;
-
-    @media (max-width: 600px) {
-      height: 40px;
-      display: flex;
-      align-items: center;
-    }
-  }
+  } */
 `;
 
-export const AsideMenu = styled(CheeseburgerMenu)`
+export const Menu = styled(CheeseburgerMenu)`
   display: grid;
   grid-template-columns: 80% 20%;
   li {
@@ -37,11 +31,10 @@ export const AsideMenu = styled(CheeseburgerMenu)`
 
 export const IconBar = styled(MenuIcon)`
   color: white;
-
   @media (min-width: 600px) {
     display: none !important;
   }
-  font-size: 37px;
+  font-size: 24px;
 `;
 
 export const IconBarOpen = styled(MenuOpenIcon)`
@@ -49,7 +42,7 @@ export const IconBarOpen = styled(MenuOpenIcon)`
   @media (min-width: 600px) {
     display: none !important;
   }
-  font-size: 37px;
+  font-size: 24px;
 `;
 
 export const IconBack = styled(MenuOpenIcon)`
@@ -89,9 +82,9 @@ export const Content = styled.div`
       font-size: 16px;
     }
     a:hover {
-      background-color: white;
+      background-color: #7159c1;
       font-weight: bold;
-      color: #3d4977;
+      color: white;
       padding: 10px;
       border-radius: 4px;
       text-decoration: none;
@@ -182,7 +175,7 @@ export const LinkStyle = styled(Link)`
   color: inherit;
 `;
 
-export const TopMenu = styled.div`
+export const TopMenu = styled(Paper)`
   display: flex;
   align-items: center;
   p {
@@ -192,5 +185,24 @@ export const TopMenu = styled.div`
     margin: 0;
     margin-left: 15px;
     margin-top: 6px;
+  }
+  && {
+    background: #3d4977;
+    height: 78px;
+    border: 0 solid #3d4977;
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+  }
+
+  div {
+    margin-left: 7px;
+    border-radius: 50px;
+    background: #eee;
+    width: 60px;
+    display: flex;
+    height: 60px;
+    justify-content: center;
+    align-items: center;
   }
 `;

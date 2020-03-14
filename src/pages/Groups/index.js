@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 
-import { Container, LinkPublisher, LinkGroup } from './styles';
+import { Container, LinkPublisher, LinkGroup, CardPaper } from './styles';
 import api from '../../services/api';
 
 export default function Groups() {
@@ -24,7 +24,7 @@ export default function Groups() {
     <Container>
       {groups &&
         groups.map(group => (
-          <li key={group.id}>
+          <CardPaper elevation={10} key={group.id}>
             <LinkGroup to={`/groups/${group.id}/edit`}>
               Grupo {group.number} - {group.leader}
             </LinkGroup>
@@ -35,7 +35,7 @@ export default function Groups() {
                 </LinkPublisher>
               </li>
             ))}
-          </li>
+          </CardPaper>
         ))}
     </Container>
   );

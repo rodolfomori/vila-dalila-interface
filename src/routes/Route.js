@@ -4,6 +4,7 @@ import { Redirect, Route } from 'react-router-dom';
 import AuthLayout from '../pages/_layouts/auth';
 import DefaultLayout from '../pages/_layouts/default';
 import { store } from '../store';
+import AsideMenu from '../components/Aside Menu';
 
 export default function RouteWrapper({
   component: Component,
@@ -26,9 +27,19 @@ export default function RouteWrapper({
     <Route
       {...rest}
       render={props => (
+        // <div
+        //   style={{
+        //     display: 'grid',
+        //     gridTemplateColumns: '20% 80%',
+        //     height: '100%',
+        //   }}
+        // >
+        // {signed && <AsideMenu />}
+
         <Layout>
           <Component {...props} />
         </Layout>
+        // </div>
       )}
     />
   );

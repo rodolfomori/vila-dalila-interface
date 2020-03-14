@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <Container>
-      <h1>Bem-Vindo {profile.name}</h1>;
+      <h1>Bem-Vindo {profile.name}</h1>
       {meetings &&
         meetings.map(meeting => (
           <li key={meeting.id}>

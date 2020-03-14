@@ -3,7 +3,6 @@ import { Link } from 'react-router-dom';
 
 export const Container = styled.div`
   h1 {
-    color: white;
     font-size: 35px;
     text-align: center;
     font-weight: bold;
@@ -16,7 +15,6 @@ export const Container = styled.div`
 `;
 
 export const LinkMeeting = styled(Link)`
-  color: white;
   font-size: 28px;
   font-weight: bold;
   text-align: center;

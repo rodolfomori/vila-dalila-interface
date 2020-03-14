@@ -12,8 +12,11 @@ import {
   IconBar,
   IconBack,
   LinkStyle,
-  Menu,
+  AsideMenu,
+  TopMenu,
 } from './styles';
+
+import Menu from '../Menu';
 
 import logo from '../../assets/vila-dalila-logo.svg';
 import { signOut } from '../../store/modules/auth/actions';
@@ -32,77 +35,19 @@ export default function Header() {
 
   return (
     <Container>
-      <Menu isOpen={open} closeCallback={() => setOpen(false)}>
-        <div className="my-menu-content">
-          <ul style={{ marginTop: '50px' }}>
-            <li>
-              <LinkStyle to="/" onClick={() => setOpen(false)}>
-                Home
-              </LinkStyle>
-            </li>
-            <li>
-              <LinkStyle to="/assistance" onClick={() => setOpen(false)}>
-                Assistência
-              </LinkStyle>
-            </li>
-            <li>
-              <LinkStyle to="/territories" onClick={() => setOpen(false)}>
-                Territórios
-              </LinkStyle>
-            </li>
-            <li>
-              <LinkStyle to="/groups" onClick={() => setOpen(false)}>
-                Grupos
-              </LinkStyle>
-            </li>
+      <AsideMenu isOpen={open} closeCallback={() => setOpen(false)}>
+        <Menu />
+      </AsideMenu>
 
-            {admin && (
-              <li>
-                <LinkStyle to="/settings" onClick={() => setOpen(false)}>
-                  Configurações
-                </LinkStyle>
-              </li>
-            )}
-
-            <li>
-              <LinkStyle to="/profile" onClick={() => setOpen(false)}>
-                Meu Perfil
-              </LinkStyle>
-            </li>
-            <li>
-              <LinkStyle
-                to="/profile"
-                onClick={handleSignOut}
-                style={{
-                  position: 'fixed',
-                  bottom: '20px',
-                  color: '#B22222',
-                  fontSize: '30px',
-                  textDecoration: 'none',
-                }}
-              >
-                Sair
-              </LinkStyle>
-            </li>
-          </ul>
-        </div>
-        <IconBack onClick={() => setOpen(false)} />
-      </Menu>
       {open ? (
         <IconBarOpen onClick={() => setOpen(!open)} />
       ) : (
         <IconBar onClick={() => setOpen(!open)} />
       )}
 
-      <Content>
+      <Content elevation={20}>
         <aside>
-          <Home>
-            <div>
-              <Link to="/">
-                <img src={logo} alt="logo" style={{ width: '50px' }} />
-              </Link>
-            </div>
-          </Home>
+          <Home />
         </aside>
         <nav>
           <Link to="/assistance">Assistência</Link>

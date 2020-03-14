@@ -33,7 +33,6 @@ export default function SignUp() {
       try {
         const response = await api.get(`publishers`);
 
-        console.log(response.data);
         setPublishers(response.data);
       } catch (err) {
         console.log(err);
@@ -55,7 +54,7 @@ export default function SignUp() {
       return;
     }
     try {
-      const response = await api.post('users', {
+      await api.post('users', {
         name,
         email,
         password,
@@ -63,8 +62,6 @@ export default function SignUp() {
         admin,
         publisher_id: selectPub.id,
       });
-
-      console.log(response);
 
       toast.success('Usuário Cadastrado com sucesso!');
     } catch (err) {
