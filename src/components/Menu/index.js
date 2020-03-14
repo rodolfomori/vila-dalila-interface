@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
@@ -19,15 +19,14 @@ import { Container, LinkStyle, TopMenu } from './styles';
 import logo from '../../assets/vila-dalila-logo.svg';
 import { signOut } from '../../store/modules/auth/actions';
 
-export default function Menu() {
+export default function Menu({ onClicked = () => {} }) {
   const admin = useSelector(state => state.user.profile.admin);
   const dispatch = useDispatch();
 
   const { profile } = useSelector(state => state.user);
-  const [open, setOpen] = useState(false);
 
   function handleSignOut() {
-    setOpen(false);
+    onClicked(false);
     dispatch(signOut());
   }
 
@@ -43,41 +42,41 @@ export default function Menu() {
         </TopMenu>
         <ul style={{ marginTop: '50px' }}>
           <li>
-            <FontAwesomeIcon icon={faHome} />{' '}
-            <LinkStyle to="/" onClick={() => setOpen(false)}>
+            <FontAwesomeIcon icon={faHome} />
+            <LinkStyle to="/" onClick={() => onClicked(false)}>
               Home
             </LinkStyle>
           </li>
           <li>
             <FontAwesomeIcon icon={faUsers} />{' '}
-            <LinkStyle to="/assistance" onClick={() => setOpen(false)}>
+            <LinkStyle to="/assistance" onClick={() => onClicked(false)}>
               Assistência
             </LinkStyle>
           </li>
 
           <li>
             <FontAwesomeIcon icon={faMapMarkedAlt} />{' '}
-            <LinkStyle to="/territories" onClick={() => setOpen(false)}>
+            <LinkStyle to="/territories" onClick={() => onClicked(false)}>
               Territórios
             </LinkStyle>
           </li>
           <li>
             <FontAwesomeIcon icon={faObjectGroup} />{' '}
-            <LinkStyle to="/groups" onClick={() => setOpen(false)}>
+            <LinkStyle to="/groups" onClick={() => onClicked(false)}>
               Grupos
             </LinkStyle>
           </li>
           {admin && (
             <li>
               <FontAwesomeIcon icon={faCogs} />{' '}
-              <LinkStyle to="/settings" onClick={() => setOpen(false)}>
+              <LinkStyle to="/settings" onClick={() => onClicked(false)}>
                 Configurações
               </LinkStyle>
             </li>
           )}
           <li>
             <FontAwesomeIcon icon={faUsersCog} />{' '}
-            <LinkStyle to="/profile" onClick={() => setOpen(false)}>
+            <LinkStyle to="/profile" onClick={() => onClicked(false)}>
               Meu Perfil
             </LinkStyle>
           </li>

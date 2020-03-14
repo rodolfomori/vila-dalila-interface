@@ -33,10 +33,16 @@ export default function Header() {
     dispatch(signOut());
   }
 
+  const closeMenu = state => {
+    if (!state) {
+      setOpen(state);
+    }
+  };
+
   return (
     <Container>
       <AsideMenu isOpen={open} closeCallback={() => setOpen(false)}>
-        <Menu />
+        <Menu onClicked={e => closeMenu(e)} />
       </AsideMenu>
 
       {open ? (
