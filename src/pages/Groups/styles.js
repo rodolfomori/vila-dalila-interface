@@ -70,7 +70,7 @@ export const LinkPublisher = styled(Link)`
   &:hover {
     font-size: 21px;
     transition: 0.4s;
-    color: #7159c1;
+    color: #3d4977;
   }
 `;
 
@@ -93,5 +93,6 @@ export const LinkGroup = styled(Link)`
   &:hover {
     font-size: 23px;
     transition: 0.4s;
+    color: #3d4977;
   }
 `;

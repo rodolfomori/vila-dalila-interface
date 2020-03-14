@@ -70,6 +70,17 @@ export default function EditPublisher(props) {
             placeholder="Nome do Publicador"
             disabled={!admin}
           />
+          {/* <InputField
+            id="outlined-basic"
+            label="E-mail"
+            variant="outlined"
+            type="email"
+            name="email"
+            value={email}
+            onChange={handleChange}
+            validators={['required', 'isEmail']}
+            errorMessages={['this field is required', 'email is not valid']}
+          /> */}
           <InputStyle
             name="group_id"
             type="number"
