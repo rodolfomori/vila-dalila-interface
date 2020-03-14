@@ -5,11 +5,11 @@ import AsideMenu from '../../../components/Aside Menu';
 export const Wrapper = styled.div`
   height: 100%;
   /* background: #191920 url(${background}) no-repeat center top; */
-  background-color: #EEE;
+  background-color: #e4e5e6;
 `;
 
 export const Menu = styled(AsideMenu)`
-  background-color: #eee;
+  background-color: #e4e5e6;
   position: fixed;
 `;
 

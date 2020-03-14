@@ -8,7 +8,8 @@ import MenuOpenIcon from '@material-ui/icons/MenuOpen';
 import { Paper } from '@material-ui/core';
 
 export const Container = styled.div`
-  /* background: #fff; */
+  height: 100%;
+  background: #2f343a;
   /* && {
     background: #3d4977;
     padding: 0 30px;
@@ -16,33 +17,12 @@ export const Container = styled.div`
     border: 0 solid #3d4977;
     border-radius: 0;
   } */
-`;
 
-export const Menu = styled(CheeseburgerMenu)`
-  display: grid;
-  grid-template-columns: 80% 20%;
-  li {
-    font-size: 20px;
-    color: black;
-    margin: 20px;
-    /* font-weight: bold; */
+  ul {
+    li {
+      color: white;
+    }
   }
-`;
-
-export const IconBar = styled(MenuIcon)`
-  color: white;
-  @media (min-width: 600px) {
-    display: none !important;
-  }
-  font-size: 24px;
-`;
-
-export const IconBarOpen = styled(MenuOpenIcon)`
-  color: white;
-  @media (min-width: 600px) {
-    display: none !important;
-  }
-  font-size: 24px;
 `;
 
 export const IconBack = styled(MenuOpenIcon)`
@@ -56,123 +36,10 @@ export const IconBack = styled(MenuOpenIcon)`
   /* color: #3b9eff; */
 `;
 
-export const Content = styled.div`
-  @media (max-width: 600px) {
-    display: none;
-  }
-  height: 78px;
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  nav {
-    display: flex;
-    align-items: center;
-    img {
-      margin-right: 20px;
-      padding-right: 20px;
-      border-right: 1px solid #eee;
-    }
-    a {
-      font-weight: bold;
-      /* color: #7159c1; */
-      color: white;
-      padding: 10px;
-      font-size: 16px;
-    }
-    a:hover {
-      background-color: #7159c1;
-      font-weight: bold;
-      color: white;
-      padding: 10px;
-      border-radius: 4px;
-      text-decoration: none;
-    }
-  }
-  aside {
-    display: flex;
-    align-items: center;
-  }
-`;
-
-export const Profile = styled.div`
-  display: flex;
-  margin-left: 20px;
-  padding-left: 20px;
-  border-left: 1px solid #eee;
-  div {
-    text-align: right;
-    margin-right: 10px;
-    strong {
-      display: block;
-      color: #eeeeee;
-    }
-    a {
-      display: block;
-      margin-top: 2px;
-      font-size: 12px;
-      color: #999;
-    }
-  }
-`;
-
-export const Home = styled.div`
-  display: flex;
-  margin-left: 20px;
-  padding-left: 20px;
-  border-right: 1px solid #eee;
-  div {
-    text-align: right;
-    margin-right: 10px;
-    strong {
-      display: block;
-      color: #333;
-    }
-    a {
-      display: block;
-      margin-top: 2px;
-      font-size: 12px;
-      color: #999;
-    }
-  }
-`;
-
-export const DropdownButton = styled(Dropdown)`
-  .dropdown {
-    background-color: white;
-    font-weight: bold;
-    color: #7159c1;
-    border: none;
-    &:hover {
-      outline: none;
-      background-color: #7159c1;
-      font-weight: bold;
-      color: white;
-      border: none;
-    }
-  }
-  /* .dropdown-item {
-    outline: none;
-    background-color: #7159c1;
-    font-weight: bold;
-    color: white;
-    border: none;
-  } */
-  .btn-primary.focus,
-  .btn-primary:focus {
-    background-color: #7159c1;
-    font-weight: bold;
-    color: white;
-  }
-  .dropdown-toggle::after {
-    outline: none;
-    display: none;
-  }
-`;
-
 export const LinkStyle = styled(Link)`
   color: inherit;
+  /* margin: 0;
+  padding: 0; */
 `;
 
 export const TopMenu = styled(Paper)`

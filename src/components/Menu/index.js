@@ -14,18 +14,7 @@ import {
   faDoorOpen,
 } from '@fortawesome/free-solid-svg-icons';
 
-import {
-  Container,
-  Content,
-  Profile,
-  Button,
-  IconBarOpen,
-  Home,
-  IconBar,
-  IconBack,
-  LinkStyle,
-  TopMenu,
-} from './styles';
+import { Container, LinkStyle, TopMenu } from './styles';
 
 import logo from '../../assets/vila-dalila-logo.svg';
 import { signOut } from '../../store/modules/auth/actions';
@@ -92,20 +81,28 @@ export default function Menu() {
               Meu Perfil
             </LinkStyle>
           </li>
-          <li
+          <div
             style={{
-              position: 'fixed',
-              bottom: '20px',
-              color: '#B22222',
-              fontSize: '30px',
-              textDecoration: 'none',
+              backgroudColor: '#F75453',
+              width: '100%',
+              height: '50px',
             }}
           >
-            <FontAwesomeIcon icon={faDoorOpen} />{' '}
-            <LinkStyle to="/profile" onClick={handleSignOut}>
-              Sair
-            </LinkStyle>
-          </li>
+            <li
+              style={{
+                position: 'fixed',
+                bottom: '20px',
+                // backgroudColor: '#F75453',
+                fontSize: '30px',
+                textDecoration: 'none',
+              }}
+            >
+              <FontAwesomeIcon icon={faDoorOpen} />{' '}
+              <LinkStyle to="/profile" onClick={handleSignOut}>
+                Sair
+              </LinkStyle>
+            </li>
+          </div>
         </ul>
       </div>
       {/* <IconBack onClick={() => setOpen(false)} /> */}
