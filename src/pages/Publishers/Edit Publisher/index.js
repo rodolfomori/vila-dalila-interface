@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import history from '../../../services/history';
+import Card from '../../../components/Card';
 
 import { Container, FormStyle, InputStyle, CheckStyle } from './styles';
 import api from '../../../services/api';
@@ -70,17 +71,6 @@ export default function EditPublisher(props) {
             placeholder="Nome do Publicador"
             disabled={!admin}
           />
-          {/* <InputField
-            id="outlined-basic"
-            label="E-mail"
-            variant="outlined"
-            type="email"
-            name="email"
-            value={email}
-            onChange={handleChange}
-            validators={['required', 'isEmail']}
-            errorMessages={['this field is required', 'email is not valid']}
-          /> */}
           <InputStyle
             name="group_id"
             type="number"

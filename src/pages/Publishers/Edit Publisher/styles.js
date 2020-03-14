@@ -1,17 +1,30 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
 import { Form, Input, Check } from '@rocketseat/unform';
+import { Paper } from '@material-ui/core';
 
-export const Container = styled.div`
-
-  @media (max-width: 600px) {
-    margin:auto;
-  }
-
-  height: 100%;
+export const FormStyle = styled(Form)`
   display: flex;
   flex-direction: column;
-  max-width:100%;
+  margin: 10px;
+  width: 90%;
+  max-width: 400px;
+  min-width: 230px;
+`;
+
+export const Container = styled(Paper)`
+
+  @media (max-width: 600px) {
+  }
+  margin:auto;
+
+  margin-top:30px;
+  display: flex;
+  flex-direction: column;
+
+  width: 60%;
+  max-width: 450px;
+  min-width: 270px;
 
   @media(min-width:600px){
     align-content:center;
@@ -19,7 +32,7 @@ export const Container = styled.div`
   }
 
   h1 {
-    color: white;
+    color:  color: rgba(0, 0, 0);;
     font-weight: bold;
     margin: 30px;
     font-size: 30px;
@@ -50,43 +63,36 @@ export const Container = styled.div`
   div {
     display: flex;
     flex-direction: column;
-
     margin: 10px;
   }
 
   .checks{
     display: flex;
     flex-direction: row;
+    align-items: center;
 
     p{
       font-size:20px;
-      color:white;
+      color: color: rgba(0, 0, 0);
       margin:0;
       margin-left:20px;
     }
   }
 `;
 
-export const FormStyle = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
-`;
-
 export const InputStyle = styled(Input)`
   @media (max-width: 600px) {
     max-width: 100%;
   }
-  background: #2f2f2f;
-  width: 400px;
+  background: rgba(0, 0, 0, 0.1);
   border: 0;
   border-radius: 4px;
   height: 44px;
   padding: 0 15px;
-  color: #fff;
+  color: rgba(0, 0, 0);
   margin: 0 0 10px;
   &::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: rgba(0, 0, 0);
   }
 `;
 
