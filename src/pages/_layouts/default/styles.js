@@ -1,6 +1,5 @@
 import styled from 'styled-components';
 import background from '../../../assets/background.svg';
-import AsideMenu from '../../../components/Aside Menu';
 
 export const Wrapper = styled.div`
   height: 100%;
@@ -8,10 +7,10 @@ export const Wrapper = styled.div`
   background-color: #e4e5e6;
 `;
 
-export const Menu = styled(AsideMenu)`
-  background-color: #e4e5e6;
-  position: fixed;
-`;
+// export const Menu = styled(AsideMenu)`
+//   background-color: #e4e5e6;
+//   position: fixed;
+// `;
 
 export const Content = styled.div`
   display: grid;
