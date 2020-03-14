@@ -19,25 +19,45 @@ export const Container = styled.div`
   } */
 
   ul {
+    div {
+      height: 50px;
+      width: 100%;
+      display: flex;
+      align-items: center;
+      &:hover {
+        background-color: #3d4977;
+      }
+    }
     li {
+      margin: 0;
+      margin-left: 10px;
+      padding: 0;
       color: white;
     }
   }
 `;
 
 export const IconBack = styled(MenuOpenIcon)`
-  float: right;
-  margin-right: 10px;
-  font-size: 30px;
-  margin-top: -45px;
-  position: fixed;
-  top: 60px;
-  left: 210px;
-  /* color: #3b9eff; */
+  cursor: pointer;
+  font-size: 35px;
+  color: white;
+  position: relative;
+  left: 178px;
+  && {
+    font-size: 35px;
+  }
 `;
 
 export const LinkStyle = styled(Link)`
   color: inherit;
+  padding-left: 10px;
+  &:focus,
+  &:visited,
+  &:link,
+  &:active {
+    text-decoration: none;
+    color: white;
+  }
   /* margin: 0;
   padding: 0; */
 `;

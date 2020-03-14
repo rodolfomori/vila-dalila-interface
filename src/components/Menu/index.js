@@ -3,21 +3,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import {
-  faHome,
-  faUsers,
-  faMapMarkedAlt,
-  faUsersCog,
-  faBuilding,
-  faObjectGroup,
-  faCogs,
-  faDoorOpen,
-} from '@fortawesome/free-solid-svg-icons';
 
-import { Container, LinkStyle, TopMenu } from './styles';
+import { faDoorOpen } from '@fortawesome/free-solid-svg-icons';
+import { Container, LinkStyle, TopMenu, IconBack } from './styles';
 
 import logo from '../../assets/vila-dalila-logo.svg';
 import { signOut } from '../../store/modules/auth/actions';
+import data from './nav';
 
 export default function Menu({ onClicked = () => {} }) {
   const admin = useSelector(state => state.user.profile.admin);
@@ -34,53 +26,48 @@ export default function Menu({ onClicked = () => {} }) {
     <Container>
       <div className="my-menu-content">
         <TopMenu elevation={10}>
-          <div>
-            <Link to="/">
-              <img src={logo} alt="logo" style={{ width: '50px' }} />
-            </Link>
-          </div>
+          <>
+            <div>
+              <Link to="/">
+                <img src={logo} alt="logo" style={{ width: '50px' }} />
+              </Link>
+            </div>
+            <IconBack onClick={() => onClicked(false)} />
+          </>
         </TopMenu>
         <ul style={{ marginTop: '50px' }}>
-          <li>
-            <FontAwesomeIcon icon={faHome} />
-            <LinkStyle to="/" onClick={() => onClicked(false)}>
-              Home
-            </LinkStyle>
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faUsers} />{' '}
-            <LinkStyle to="/assistance" onClick={() => onClicked(false)}>
-              Assistência
-            </LinkStyle>
-          </li>
+          {data.map(configs => (
+            <div>
+              <li style={{ display: !admin && configs.private && 'none' }}>
+                <FontAwesomeIcon
+                  style={{ width: '30px' }}
+                  icon={configs.icon}
+                />
+                <LinkStyle to={configs.path} onClick={() => onClicked(false)}>
+                  {configs.name}
+                </LinkStyle>
+              </li>
+            </div>
+          ))}
 
-          <li>
-            <FontAwesomeIcon icon={faMapMarkedAlt} />{' '}
-            <LinkStyle to="/territories" onClick={() => onClicked(false)}>
-              Territórios
-            </LinkStyle>
-          </li>
-          <li>
-            <FontAwesomeIcon icon={faObjectGroup} />{' '}
-            <LinkStyle to="/groups" onClick={() => onClicked(false)}>
-              Grupos
-            </LinkStyle>
-          </li>
-          {admin && (
-            <li>
-              <FontAwesomeIcon icon={faCogs} />{' '}
-              <LinkStyle to="/settings" onClick={() => onClicked(false)}>
-                Configurações
+          <div>
+            <li
+              style={{
+                position: 'fixed',
+                bottom: '20px',
+                // backgroudColor: '#F75453',
+                fontSize: '30px',
+                textDecoration: 'none',
+              }}
+            >
+              <FontAwesomeIcon style={{ width: '30px' }} icon={faDoorOpen} />
+              <LinkStyle to="/profile" onClick={handleSignOut}>
+                Sair
               </LinkStyle>
             </li>
-          )}
-          <li>
-            <FontAwesomeIcon icon={faUsersCog} />{' '}
-            <LinkStyle to="/profile" onClick={() => onClicked(false)}>
-              Meu Perfil
-            </LinkStyle>
-          </li>
-          <div
+          </div>
+
+          {/* <div
             style={{
               backgroudColor: '#F75453',
               width: '100%',
@@ -95,13 +82,13 @@ export default function Menu({ onClicked = () => {} }) {
                 fontSize: '30px',
                 textDecoration: 'none',
               }}
-            >
-              <FontAwesomeIcon icon={faDoorOpen} />{' '}
+            > */}
+          {/* <FontAwesomeIcon icon={faDoorOpen} />{' '}
               <LinkStyle to="/profile" onClick={handleSignOut}>
                 Sair
               </LinkStyle>
             </li>
-          </div>
+          </div> */}
         </ul>
       </div>
       {/* <IconBack onClick={() => setOpen(false)} /> */}

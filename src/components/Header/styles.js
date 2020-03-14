@@ -9,6 +9,8 @@ import { Paper } from '@material-ui/core';
 
 export const Container = styled(Paper)`
   /* background: #fff; */
+  display: flex;
+  align-items: center;
   && {
     background: #3d4977;
     padding: 0 30px;
@@ -37,19 +39,22 @@ export const AsideMenu = styled(CheeseburgerMenu)`
 
 export const IconBar = styled(MenuIcon)`
   color: white;
-
+  cursor: pointer;
   @media (min-width: 600px) {
-    display: none !important;
+    && {
+      font-size: 37px;
+    }
   }
-  font-size: 37px;
 `;
 
 export const IconBarOpen = styled(MenuOpenIcon)`
   color: white;
+  cursor: pointer;
   @media (min-width: 600px) {
-    display: none !important;
+    && {
+      font-size: 37px;
+    }
   }
-  font-size: 37px;
 `;
 
 export const IconBack = styled(MenuOpenIcon)`
