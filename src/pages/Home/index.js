@@ -4,7 +4,7 @@ import { parseISO, format } from 'date-fns';
 import pt from 'date-fns/locale/pt';
 import api from '../../services/api';
 
-import { Container, LinkMeeting } from './styles';
+import { Container, LinkMeeting, Card } from './styles';
 
 export default function Home() {
   const [meetings, setMeetings] = useState();
@@ -42,23 +42,25 @@ export default function Home() {
   return (
     <Container>
       <h1>Bem-Vindo {profile.name}</h1>
-      {meetings &&
-        meetings.map(meeting => (
-          <li key={meeting.id}>
-            <LinkMeeting
-              to={`/assistance/meeting/${meeting.id}/group/${myGroup}`}
-            >
-              {meeting.date}
-            </LinkMeeting>
-            {/* {group.publishers.map(publisher => (
+      <Card>
+        {meetings &&
+          meetings.map(meeting => (
+            <li key={meeting.id}>
+              <LinkMeeting
+                to={`/assistance/meeting/${meeting.id}/group/${myGroup}`}
+              >
+                {meeting.date}
+              </LinkMeeting>
+              {/* {group.publishers.map(publisher => (
               <li key={publisher.id}>
                 <LinkPublisher to={`/publishers/${publisher.id}/edit`}>
                   {publisher.name}{' '}
                 </LinkPublisher>
               </li>
             ))} */}
-          </li>
-        ))}
+            </li>
+          ))}
+      </Card>
     </Container>
   );
 }

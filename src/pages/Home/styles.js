@@ -1,5 +1,11 @@
 import styled from 'styled-components';
 import { Link } from 'react-router-dom';
+import { Paper } from '@material-ui/core';
+
+export const Card = styled(Paper)`
+  width: 50%;
+  margin: auto;
+`;
 
 export const Container = styled.div`
   h1 {
@@ -18,7 +24,7 @@ export const LinkMeeting = styled(Link)`
   font-size: 28px;
   font-weight: bold;
   text-align: center;
-
+  color: #3d4977;
   text-decoration: none;
   &:focus,
   &:hover,

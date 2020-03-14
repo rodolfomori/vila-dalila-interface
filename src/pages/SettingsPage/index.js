@@ -39,12 +39,13 @@ export default function SettingsPage() {
   }
   return (
     <Container>
-      <aside>
-        <h1>Settings page</h1>
-        <a onClick={() => handlePage('group')}>Groups</a>
-        <a onClick={() => handlePage('user')}>User</a>
-        <a onClick={() => handlePage('publisher')}>Publisher</a>
-      </aside>
+      <h1>Configurações</h1>
+
+      <div className="buttons">
+        <a onClick={() => handlePage('group')}>Adicionar Grupo</a>
+        <a onClick={() => handlePage('user')}>Adicionar Usuário</a>
+        <a onClick={() => handlePage('publisher')}>Adicionar Usuário</a>
+      </div>
       <Wrapper>
         {group && <NewGroup />}
         {user && <SignUp />}

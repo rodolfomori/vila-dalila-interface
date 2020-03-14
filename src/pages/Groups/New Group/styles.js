@@ -1,18 +1,42 @@
 import styled from 'styled-components';
 import { darken } from 'polished';
-import { Form, Input } from '@rocketseat/unform';
+import { Form, Input, Check } from '@rocketseat/unform';
+import { Paper } from '@material-ui/core';
 
-export const Container = styled.div`
-  height: 100%;
+export const FormStyle = styled(Form)`
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
   flex-direction: column;
+  margin: 10px;
+  width: 90%;
+  max-width: 400px;
+  min-width: 230px;
+`;
+
+export const Container = styled(Paper)`
+
+  @media (max-width: 600px) {
+  }
+  margin:auto;
+
+  margin-top:30px;
+  display: flex;
+  flex-direction: column;
+
+  width: 60%;
+  max-width: 450px;
+  min-width: 270px;
+
+  @media(min-width:600px){
+    align-content:center;
+  align-items: center;
+  }
+
   h1 {
-    color: white;
+    color: rgba(0, 0, 0);;
     font-weight: bold;
     margin: 30px;
     font-size: 30px;
+    text-align: center;
   }
   span {
     color: #fb6f91;
@@ -29,7 +53,7 @@ export const Container = styled.div`
     color: #fff;
     border: 0;
     border-radius: 4px;
-    font-size: 16px;
+    font-size: 16px
     transition: background 0.2s;
     &:hover {
       background: ${darken(0.03, '#3b9eff')};
@@ -41,24 +65,37 @@ export const Container = styled.div`
     flex-direction: column;
     margin: 10px;
   }
-`;
 
-export const FormStyle = styled(Form)`
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
+  .checks{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    p{
+      font-size:20px;
+      color: color: rgba(0, 0, 0);
+      margin:0;
+      margin-left:20px;
+    }
+  }
 `;
 
 export const InputStyle = styled(Input)`
-  background: #2f2f2f;
-  width: 400px;
+  @media (max-width: 600px) {
+    max-width: 100%;
+  }
+  background: rgba(0, 0, 0, 0.1);
   border: 0;
   border-radius: 4px;
   height: 44px;
   padding: 0 15px;
-  color: #fff;
+  color: rgba(0, 0, 0);
   margin: 0 0 10px;
   &::placeholder {
-    color: rgba(255, 255, 255, 0.7);
+    color: #999;
   }
+`;
+
+export const CheckStyle = styled(Check)`
+  font-size: 100px;
 `;

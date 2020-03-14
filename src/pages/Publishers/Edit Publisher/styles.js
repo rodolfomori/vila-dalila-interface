@@ -14,8 +14,6 @@ export const FormStyle = styled(Form)`
 
 export const Container = styled(Paper)`
 
-  @media (max-width: 600px) {
-  }
   margin:auto;
 
   margin-top:30px;
@@ -92,7 +90,7 @@ export const InputStyle = styled(Input)`
   color: rgba(0, 0, 0);
   margin: 0 0 10px;
   &::placeholder {
-    color: rgba(0, 0, 0);
+    color: #999;
   }
 `;
 

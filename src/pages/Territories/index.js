@@ -91,7 +91,11 @@ export default function Territories() {
       <Text>Territórios</Text>
       <Container mobile={mobile}>
         {handleTarritories.map(terr => (
-          <a style={{ display: 'table-cell' }} href={terr} target="_blank">
+          <a
+            style={{ display: 'table-cell', margin: '10px' }}
+            href={terr}
+            target="_blank"
+          >
             <img src={terr} alt={terr} />
           </a>
         ))}

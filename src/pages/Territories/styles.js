@@ -1,7 +1,15 @@
 import styled, { css } from 'styled-components';
+import { Paper } from '@material-ui/core';
 
-export const Container = styled.div`
+export const Container = styled(Paper)`
+  margin: auto;
+
   margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+
+  width: 95%;
+
   display: grid;
   ${props =>
     props.mobile
@@ -13,16 +21,15 @@ export const Container = styled.div`
         `}
   grid-gap: 20px;
   justify-items: center;
-
   img {
-    width: 200px;
+    width: 100%;
   }
 `;
 
 export const Text = styled.div`
-  color: white;
-  font-size: 35px;
-  text-align: center;
+  color: rgba(0, 0, 0);
   font-weight: bold;
-  margin-top: 30px;
+  margin: 30px;
+  font-size: 30px;
+  text-align: center;
 `;

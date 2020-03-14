@@ -71,7 +71,8 @@ export default function SignUp() {
 
   return (
     <Container>
-      <img src={logo} alt="logo gobarber" />
+      {/* <img src={logo} alt="logo gobarber" /> */}
+      <h1>Novo Usuário</h1>
 
       <FormStyle onSubmit={handleSubmit}>
         <InputStyle name="name" placeholder="Nome Completo" />
