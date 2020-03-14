@@ -52,7 +52,7 @@ export const Container = styled(Paper)`
   }
 
   h1 {
-    color:  color: rgba(0, 0, 0);;
+    color: rgba(0, 0, 0);
     font-weight: bold;
     margin: 30px;
     font-size: 30px;
@@ -73,7 +73,7 @@ export const Container = styled(Paper)`
     color: #fff;
     border: 0;
     border-radius: 4px;
-    font-size: 16px
+    font-size: 16px;
     transition: background 0.2s;
     &:hover {
       background: ${darken(0.03, '#3b9eff')};

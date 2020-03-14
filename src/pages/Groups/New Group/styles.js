@@ -13,12 +13,11 @@ export const FormStyle = styled(Form)`
 `;
 
 export const Container = styled(Paper)`
-
   @media (max-width: 600px) {
   }
-  margin:auto;
+  margin: auto;
 
-  margin-top:30px;
+  margin-top: 30px;
   display: flex;
   flex-direction: column;
 
@@ -26,13 +25,13 @@ export const Container = styled(Paper)`
   max-width: 450px;
   min-width: 270px;
 
-  @media(min-width:600px){
-    align-content:center;
-  align-items: center;
+  @media (min-width: 600px) {
+    align-content: center;
+    align-items: center;
   }
 
   h1 {
-    color: rgba(0, 0, 0);;
+    color: rgba(0, 0, 0);
     font-weight: bold;
     margin: 30px;
     font-size: 30px;
@@ -53,7 +52,7 @@ export const Container = styled(Paper)`
     color: #fff;
     border: 0;
     border-radius: 4px;
-    font-size: 16px
+    font-size: 16px;
     transition: background 0.2s;
     &:hover {
       background: ${darken(0.03, '#3b9eff')};
@@ -66,16 +65,16 @@ export const Container = styled(Paper)`
     margin: 10px;
   }
 
-  .checks{
+  .checks {
     display: flex;
     flex-direction: row;
     align-items: center;
 
-    p{
-      font-size:20px;
-      color: color: rgba(0, 0, 0);
-      margin:0;
-      margin-left:20px;
+    p {
+      font-size: 20px;
+      color: rgba(0, 0, 0);
+      margin: 0;
+      margin-left: 20px;
     }
   }
 `;

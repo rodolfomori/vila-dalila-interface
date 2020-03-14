@@ -32,7 +32,7 @@ export const Container = styled(Paper)`
   }
 
   h1 {
-    color:  color: rgba(0, 0, 0);;
+    color: rgba(0, 0, 0);
     font-weight: bold;
     margin: 30px;
     font-size: 30px;
@@ -73,7 +73,7 @@ export const Container = styled(Paper)`
 
     p{
       font-size:20px;
-      color: color: rgba(0, 0, 0);
+      color: rgba(0, 0, 0);
       margin:0;
       margin-left:20px;
     }
