@@ -4,9 +4,18 @@ import { Paper } from '@material-ui/core';
 
 export const Container = styled(Paper)`
   padding: 30px;
+
   @media (max-width: 600px) {
     max-width: 95%;
   }
+
+  h1 {
+    color: rgba(0, 0, 0);
+    font-weight: bold;
+    font-size: 30px;
+    text-align: center;
+  }
+
   max-width: 600px;
   margin: 50px auto;
   form {
