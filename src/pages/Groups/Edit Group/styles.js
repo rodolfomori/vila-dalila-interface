@@ -14,6 +14,7 @@ export const FormStyle = styled(Form)`
 
 export const Container = styled(Paper)`
   @media (max-width: 600px) {
+    width: 95%;
   }
   margin: auto;
 
