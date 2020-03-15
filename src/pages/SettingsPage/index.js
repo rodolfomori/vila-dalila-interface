@@ -44,7 +44,7 @@ export default function SettingsPage() {
       <div className="buttons">
         <a onClick={() => handlePage('group')}>Adicionar Grupo</a>
         <a onClick={() => handlePage('user')}>Adicionar Usuário</a>
-        <a onClick={() => handlePage('publisher')}>Adicionar Usuário</a>
+        <a onClick={() => handlePage('publisher')}>Adicionar Publicador</a>
       </div>
       <Wrapper>
         {group && <NewGroup />}

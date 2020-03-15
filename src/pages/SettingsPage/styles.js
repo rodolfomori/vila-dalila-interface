@@ -66,7 +66,6 @@ export const Container = styled.div`
 `;
 
 export const Wrapper = styled.div`
-  margin-top: 30px;
   display: flex;
   justify-content: center;
   width: 100%;

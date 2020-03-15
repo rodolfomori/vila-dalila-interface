@@ -5,7 +5,7 @@ import { Paper } from '@material-ui/core';
 export const Container = styled(Paper)`
   padding: 30px;
   @media (max-width: 600px) {
-    max-width: 80%;
+    max-width: 95%;
   }
   max-width: 600px;
   margin: 50px auto;

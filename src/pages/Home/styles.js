@@ -5,6 +5,12 @@ import { Paper } from '@material-ui/core';
 export const Card = styled(Paper)`
   width: 50%;
   margin: auto;
+  padding: 2px;
+  margin-top: 50px;
+
+  @media (max-width: 600px) {
+    width: 95%;
+  }
 `;
 
 export const Container = styled.div`
@@ -15,7 +21,7 @@ export const Container = styled.div`
     margin-top: 30px;
   }
   li {
-    margin-top: 30px;
+    margin: 20px;
   }
   text-align: center;
 `;
