@@ -7,7 +7,7 @@ import logoCampanha from '../../assets/logo-campanha.PDF';
 export default function Campaign() {
   return (
     <>
-      <img src={logoCampanha} alt="" />
+      {/* <img src={logoCampanha} alt="" /> */}
       <Container>
         <h1>Campanha Prédios e Condomínios</h1>
         <p>
