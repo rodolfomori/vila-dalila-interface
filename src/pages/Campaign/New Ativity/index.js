@@ -10,12 +10,10 @@ import {
   SelectStyle,
   CheckAdmin,
   CheckWraper,
+  TextStyle,
 } from './styles';
 
 export default function NewAtivity() {
-  const [publishers, setPublishers] = useState();
-  const [selectPub, setSelectPub] = useState();
-
   const [modalities, setModalities] = useState();
   const [selectMod, setSelectMod] = useState();
 
@@ -83,11 +81,9 @@ export default function NewAtivity() {
   }, []);
 
   useEffect(() => {
-    console.log(selectTerr);
     async function getDataBuilding() {
       try {
         const response = await api.get(`buildings/${selectTerr.number}`);
-        console.log(response.data);
         setBuildings(response.data);
       } catch (err) {
         console.log(err);
@@ -97,30 +93,26 @@ export default function NewAtivity() {
     getDataBuilding();
   }, [selectTerr]);
 
-  async function handleSubmit({
-    name,
-    email,
-    password,
-    confirmPassword,
-    admin,
-  }) {
-    // try {
-    //   await api.post('activities', {
-    //     publishers,
-    //     email,
-    //     password,
-    //     confirmPassword,
-    //     admin,
-    //     publisher_id: selectPub.id,
-    //   });
-    //   toast.success('Atividade Registrada com sucesso!');
-    // } catch (err) {
-    //   toast.error('Erro ao Registrar Atividade!');
-    // }
+  async function handleSubmit({ publishers, apartment, observations }) {
+    try {
+      await api.post('activities', {
+        publishers,
+        building_id: selectBuilding.id,
+        observations,
+        date: '02.02.2020',
+        modality_id: selectMod.id,
+        apartment,
+      });
+      toast.success('Atividade Registrada com sucesso!');
+    } catch (err) {
+      toast.error('Erro ao Registrar Atividade!');
+    }
   }
 
   return (
     <FormStyle onSubmit={handleSubmit}>
+      <p style={{ color: 'red', fontWeight: 'bold' }}>* Obrigatório</p>
+
       <Container>
         <h1>
           Data<strong style={{ color: 'red' }}>*</strong>
@@ -131,7 +123,7 @@ export default function NewAtivity() {
       <Container>
         <h1>Nome dos Publicadores</h1>
         <InputStyle
-          name="publisher"
+          name="publishers"
           type="text"
           placeholder="Nome do Publicador"
         />
@@ -191,12 +183,48 @@ export default function NewAtivity() {
             }
           />
         ) : (
-          <p>
-            Escolha o número do território primeiro antes de escolher o
-            condomínio
-          </p>
+          <p>Escolha o número do território antes de escolher o condomínio.</p>
         )}
       </Container>
+      <Container>
+        <h1>Apartamento / Casa em que falou</h1>
+        <p>
+          Insira o número do apto ou casa do condomínio.
+          <br /> <strong>Por exemplo:</strong> Casa 13 | Apto 141 Bloco B | Apto
+          12 | Casa 02.
+        </p>
+
+        <InputStyle
+          name="apartment"
+          type="text"
+          placeholder="Número do Apto. / Casa"
+        />
+      </Container>
+      <Container>
+        <h1>Ocorrências - Observações Relevantes</h1>
+        <p>
+          Insira observações sobre o trabalho realizado nesse apto ou casa.
+          <br />
+          <strong>Por exemplo:</strong> Falei pelo interfone com José Roberto.
+          Fizemos a apresentação sugestão sobre os últimos dias e lemos
+          2-Timóteo 3:1-5. Não aceitou revisita porém gostou do contato.
+          Informou que poderíamos enviar publicações via WhatsApp pelo tel (11)
+          98756-9012. Informou também o número do seu telefone fixo (11)
+          2651-8744.
+        </p>
+
+        <TextStyle
+          className="textArea"
+          name="observations"
+          type="text"
+          multiline
+          placeholder="Observações."
+        />
+      </Container>
+
+      <button type="submit" onClick={handleSubmit}>
+        Enviar Dados
+      </button>
     </FormStyle>
   );
 }

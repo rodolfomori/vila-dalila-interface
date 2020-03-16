@@ -9,25 +9,69 @@ export const Date = styled(TextField)``;
 export const SelectStyle = styled(Select)`
   color: black;
   cursor: pointer !important;
+  width: 100%;
 `;
 
 export const FormStyle = styled(Form)`
   display: flex;
   flex-direction: column;
   justify-items: center;
-  margin: 10px;
-  max-width: 90%;
+  align-items: center;
+  margin: 0;
+
+  button {
+    margin: 40px 0;
+    height: 44px;
+    background: #3b9eff;
+    font-weight: bold;
+    color: #fff;
+    border: 0;
+    border-radius: 4px;
+    font-size: 16px;
+    transition: background 0.2s;
+    width: 60%;
+    max-width: 450px;
+    min-width: 270px;
+    @media (max-width: 600px) {
+      width: 95%;
+    }
+
+    &:hover {
+      background: ${darken(0.03, '#3b9eff')};
+    }
+  }
 `;
 
 export const InputStyle = styled(Input)`
-  @media (max-width: 600px) {
+  /* @media (max-width: 600px) {
     width: 90%;
-  }
-  width: 80%;
+  } */
+  width: 100%;
   background: rgba(0, 0, 0, 0.1);
   border: 0;
   border-radius: 4px;
   height: 44px;
+  padding: 0 15px;
+  color: rgba(0, 0, 0);
+  margin: 0 0 10px;
+  &::placeholder {
+    color: #999;
+  }
+
+  .textArea {
+    height: 200px !important;
+  }
+`;
+
+export const TextStyle = styled(Input)`
+  /* @media (max-width: 600px) {
+    width: 90%;
+  } */
+  width: 100%;
+  background: rgba(0, 0, 0, 0.1);
+  border: 0;
+  border-radius: 4px;
+  height: 130px;
   padding: 0 15px;
   color: rgba(0, 0, 0);
   margin: 0 0 10px;
@@ -58,18 +102,13 @@ export const Container = styled(Paper)`
   }
 
   h1 {
-    /* color: rgba(0, 0, 0);
-    margin: 16px;
-    font-size: 30px;
-    text-align: center;
-    margin-top:5px; */
+
     font-family: Roboto,Arial,sans-serif;
     font-size: 16px;
-    font-weight: 500;
+    font-weight: bold;
     letter-spacing: .1px;
     line-height: 24px;
     color: #202124;
-    font-weight: 400;
     width: 100%;
     word-break: break-word;
   }
@@ -91,6 +130,7 @@ export const Container = styled(Paper)`
     font-weight: bold;
   }
   button {
+
     margin: 5px 0 0;
     height: 44px;
     background: #3b9eff;
@@ -105,12 +145,6 @@ export const Container = styled(Paper)`
     }
   }
 
-  /* div {
-    display: flex;
-    flex-direction: column;
-    margin: 10px;
-  } */
-
   .checks{
     display: flex;
     flex-direction: row;
@@ -124,6 +158,7 @@ export const Container = styled(Paper)`
     }
   }
 `;
+
 export const CheckWraper = styled.div`
   display: flex;
   align-items: center;
