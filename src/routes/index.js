@@ -16,7 +16,9 @@ import NewPublisher from '../pages/Publishers/New Publisher';
 import EditPublisher from '../pages/Publishers/Edit Publisher';
 import AllAssistances from '../pages/Assistance/All Assistances';
 import AllGroups from '../pages/Assistance/All Groups';
-import Privacy from '../pages/Privacy';
+import Campaign from '../pages/Campaign';
+import NewAtivity from '../pages/Campaign/New Ativity';
+import ViewAtivity from '../pages/Campaign/View Ativity';
 
 import Route from './Route';
 
@@ -49,7 +51,9 @@ export default function Routes() {
 
       <Route path="/settings" component={SettingsPage} isPrivate />
 
-      <Route path="/privacy" component={Privacy} />
+      <Route path="/campaign" component={Campaign} isPrivate />
+      <Route path="/new" component={NewAtivity} isPrivate />
+      <Route path="/view" component={ViewAtivity} isPrivate />
     </Switch>
   );
 }

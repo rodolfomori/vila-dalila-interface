@@ -34,6 +34,12 @@ export default [
     private: false,
   },
   {
+    name: 'Campanha',
+    icon: faBuilding,
+    path: 'campaign',
+    private: false,
+  },
+  {
     name: 'Configurações',
     icon: faCogs,
     path: 'settings',
