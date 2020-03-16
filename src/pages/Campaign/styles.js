@@ -42,7 +42,7 @@ export const Container = styled(Paper)`
     line-height: 135%;
     margin: 5px 10px;
     width: 95%;
-    margin-bottom: 20px;
+    margin-bottom: 20px;ogo
   }
 `;
 

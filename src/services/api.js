@@ -2,9 +2,9 @@ import axios from 'axios';
 
 const api = axios.create({
   // baseURL: 'api.viladalila.online:3001',
-  baseURL: 'https://go5ousnc8i.execute-api.us-east-1.amazonaws.com/Production',
+  // baseURL: 'https://go5ousnc8i.execute-api.us-east-1.amazonaws.com/Production',
   // baseURL: 'http://localhost:3001',
-  // baseURL: 'ec2-34-238-164-45.compute-1.amazonaws.com:3001',
+  baseURL: 'http://134.122.30.88',
 });
 
 export default api;
