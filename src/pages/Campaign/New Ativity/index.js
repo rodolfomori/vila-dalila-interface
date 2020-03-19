@@ -65,11 +65,9 @@ export default function NewAtivity() {
   const [buildings, setBuildings] = useState();
   const [selectBuilding, setSelectBuilding] = useState();
 
-  const [phone, setPhone] = useState('');
+  const [phone, setPhone] = useState();
   const message = 'algo ';
   const [date, setDate] = useState('');
-
-  console.log(date);
 
   useEffect(() => {
     async function getData() {
@@ -243,19 +241,13 @@ export default function NewAtivity() {
           Coloque aqui o número de contato do morador.
           <br /> <strong>Por exemplo:</strong> 2566-1234 | 96828-0345.
         </p>
-
         <InputStyleMask
-          mask={phone[0] === '9' ? '99999-9999' : '9999-9999'}
-          value={phone}
-          onChange={e => setPhone(e.target)}
-          placeholder="Número de telefone ou celular"
+          kind="cel-phone"
+          withDDD={false}
+          options={{
+            withDDD: false,
+          }}
         />
-        {/*
-        <InputStyle
-          name="apartment"
-          type="text"
-          placeholder="Número de telefone ou celular"
-        /> */}
       </Container>
       <Container>
         <h1>Ocorrências - Observações Relevantes</h1>

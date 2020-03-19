@@ -5,6 +5,7 @@ import Select from 'react-select';
 import { Paper, TextField } from '@material-ui/core';
 import { InputMask } from 'primereact/inputmask';
 import { Calendar } from 'primereact/calendar';
+import TextInputMask from 'react-masked-text';
 
 export const FormStyle = styled(Form)`
   display: flex;
@@ -69,6 +70,7 @@ export const InputStyle = styled(Input)`
 
   .textArea {
     height: 200px !important;
+    padding: 5px 10px;
   }
 `;
 
@@ -183,7 +185,18 @@ export const CheckAdmin = styled(Check)`
   margin: 35px;
 `;
 
-export const InputStyleMask = styled(InputMask)``;
+export const InputStyleMask = styled(TextInputMask)`
+  width: 100%;
+  border: 1.4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height: 44px;
+  padding: 0 15px;
+  color: rgba(0, 0, 0);
+  margin: 0 0 10px;
+  &::placeholder {
+    color: #999;
+  }
+`;
 
 export const Date = styled(TextField)``;
 
