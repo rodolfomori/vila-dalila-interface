@@ -154,7 +154,26 @@ export default function NewAtivity() {
     <>
       <Spinner loading={loading} />
       <FormStyle onSubmit={handleSubmit}>
-        <p style={{ color: 'red', fontWeight: 'bold' }}>* Obrigatório</p>
+        <Container>
+          <h1 style={{ textAlign: 'center', fontSize: '25px' }}>
+            Novo Registro de Atividade
+          </h1>
+          <br />
+          <p>
+            Preencha todos os dados da atividade que foi realizada.
+            <br />
+            Esse formulário deve ser preenchido individualmente para cada
+            morador, apto. ou casa.
+          </p>
+          <p>
+            <strong>Dúvidas e Problemas Técnicos:</strong> (11) 9 6829-0266
+            <br />
+          </p>
+          <p style={{ fontWeight: 'bold' }}>
+            <strong style={{ color: 'red' }}>*</strong> Itens Obrigatórios
+            <br />
+          </p>
+        </Container>{' '}
         <Container>
           <h1>
             Data<strong style={{ color: 'red' }}>*</strong>
@@ -183,7 +202,6 @@ export default function NewAtivity() {
             />
           </div>
         </Container>
-
         <Container>
           <h1>
             Nome dos Publicadores <strong style={{ color: 'red' }}>*</strong>
@@ -197,7 +215,6 @@ export default function NewAtivity() {
           + Adicionar Publicador
         </button> */}
         </Container>
-
         <Container>
           <h1>
             Modalidade<strong style={{ color: 'red' }}>*</strong>
@@ -314,7 +331,6 @@ export default function NewAtivity() {
             }}
           />
         </Container>
-
         <button type="submit">Enviar Dados</button>
       </FormStyle>
     </>
