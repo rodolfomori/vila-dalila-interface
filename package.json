@@ -4,6 +4,7 @@
   "private": true,
   "dependencies": {
     "@date-io/date-fns": "^2.4.0",
+    "@emotion/core": "^10.0.28",
     "@fortawesome/fontawesome-svg-core": "^1.2.27",
     "@fortawesome/free-solid-svg-icons": "^5.12.1",
     "@fortawesome/react-fontawesome": "^0.1.9",
@@ -44,6 +45,7 @@
     "react-router-dom": "^5.1.2",
     "react-scripts": "3.3.0",
     "react-select": "^3.0.8",
+    "react-spinners": "^0.8.1",
     "react-text-mask": "^5.4.3",
     "react-toastify": "^5.5.0",
     "reactotron-react-js": "^3.3.7",

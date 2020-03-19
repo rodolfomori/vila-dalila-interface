@@ -3,7 +3,6 @@ import { darken } from 'polished';
 import { Form, Input, Check } from '@rocketseat/unform';
 import Select from 'react-select';
 import { Paper, TextField } from '@material-ui/core';
-import { InputMask } from 'primereact/inputmask';
 import { Calendar } from 'primereact/calendar';
 import TextInputMask from 'react-masked-text';
 
@@ -37,21 +36,21 @@ export const FormStyle = styled(Form)`
   }
 `;
 
-// export const InputStyleMask = styled(InputMask)`
-//   /* @media (max-width: 600px) {
-//     width: 90%;
-//   } */
-//   width: 100%;
-//   border: 1.4px solid rgba(0, 0, 0, 0.1);
-//   border-radius: 4px;
-//   height: 44px;
-//   padding: 0 15px;
-//   color: rgba(0, 0, 0);
-//   margin: 0 0 10px;
-//   &::placeholder {
-//     color: #999;
-//   }
-// `;
+export const InputStyleMask = styled(TextInputMask)`
+  /* @media (max-width: 600px) {
+    width: 90%;
+  } */
+  width: 100%;
+  border: 1.4px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  height: 44px;
+  padding: 0 15px;
+  color: rgba(0, 0, 0);
+  margin: 0 0 10px;
+  &::placeholder {
+    color: #999;
+  }
+`;
 
 export const InputStyle = styled(Input)`
   /* @media (max-width: 600px) {
@@ -134,7 +133,7 @@ export const Container = styled(Paper)`
     width: 100%;
   }
   span {
-    color: #fb6f91;
+    color: #fb6f65;
     align-self: flex-start;
     text-align: center;
     margin: 0 0 10px;
@@ -183,19 +182,6 @@ export const CheckWraper = styled.div`
 export const CheckAdmin = styled(Check)`
   font-size: 30px;
   margin: 35px;
-`;
-
-export const InputStyleMask = styled(TextInputMask)`
-  width: 100%;
-  border: 1.4px solid rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
-  height: 44px;
-  padding: 0 15px;
-  color: rgba(0, 0, 0);
-  margin: 0 0 10px;
-  &::placeholder {
-    color: #999;
-  }
 `;
 
 export const Date = styled(TextField)``;
