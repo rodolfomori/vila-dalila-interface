@@ -3,14 +3,7 @@ import { darken } from 'polished';
 import { Form, Input, Check } from '@rocketseat/unform';
 import Select from 'react-select';
 import { Paper, TextField } from '@material-ui/core';
-
-export const Date = styled(TextField)``;
-
-export const SelectStyle = styled(Select)`
-  color: black;
-  cursor: pointer !important;
-  width: 100%;
-`;
+import { InputMask } from 'primereact/inputmask';
 
 export const FormStyle = styled(Form)`
   display: flex;
@@ -42,13 +35,28 @@ export const FormStyle = styled(Form)`
   }
 `;
 
+// export const InputStyleMask = styled(InputMask)`
+//   /* @media (max-width: 600px) {
+//     width: 90%;
+//   } */
+//   width: 100%;
+//   border: 1.4px solid rgba(0, 0, 0, 0.1);
+//   border-radius: 4px;
+//   height: 44px;
+//   padding: 0 15px;
+//   color: rgba(0, 0, 0);
+//   margin: 0 0 10px;
+//   &::placeholder {
+//     color: #999;
+//   }
+// `;
+
 export const InputStyle = styled(Input)`
   /* @media (max-width: 600px) {
     width: 90%;
   } */
   width: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  border: 0;
+  border: 1.4px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   height: 44px;
   padding: 0 15px;
@@ -68,8 +76,7 @@ export const TextStyle = styled(Input)`
     width: 90%;
   } */
   width: 100%;
-  background: rgba(0, 0, 0, 0.1);
-  border: 0;
+  border: 1.4px solid rgba(0, 0, 0, 0.1);
   border-radius: 4px;
   height: 130px;
   padding: 0 15px;
@@ -81,6 +88,7 @@ export const TextStyle = styled(Input)`
 `;
 
 export const Container = styled(Paper)`
+
 
   margin:auto;
 
@@ -172,4 +180,14 @@ export const CheckWraper = styled.div`
 export const CheckAdmin = styled(Check)`
   font-size: 30px;
   margin: 35px;
+`;
+
+export const InputStyleMask = styled(InputMask)``;
+
+export const Date = styled(TextField)``;
+
+export const SelectStyle = styled(Select)`
+  color: black;
+  cursor: pointer !important;
+  width: 100%;
 `;

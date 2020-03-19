@@ -11,7 +11,11 @@ import {
   CheckAdmin,
   CheckWraper,
   TextStyle,
+  InputStyleMask,
+  CalendarStyle,
 } from './styles';
+
+import Calendar from '../../../components/Calendar';
 
 export default function NewAtivity() {
   const [modalities, setModalities] = useState();
@@ -61,6 +65,11 @@ export default function NewAtivity() {
   const [buildings, setBuildings] = useState();
   const [selectBuilding, setSelectBuilding] = useState();
 
+  const [phone, setPhone] = useState('');
+
+  const [date, setDate] = useState('');
+
+  console.log(date);
   useEffect(() => {
     async function getData() {
       try {
@@ -118,6 +127,16 @@ export default function NewAtivity() {
           Data<strong style={{ color: 'red' }}>*</strong>
         </h1>
         <p> Insira a data que seu grupo está trabalhando na modalidade.</p>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: '90% 10%',
+            width: '95%',
+          }}
+        >
+          <Calendar value={date} onChange={e => setDate(e.value)} />
+        </div>
       </Container>
 
       <Container>
@@ -199,6 +218,26 @@ export default function NewAtivity() {
           type="text"
           placeholder="Número do Apto. / Casa"
         />
+      </Container>
+      <Container>
+        <h1>Contato</h1>
+        <p>
+          Coloque aqui o número de contato do morador.
+          <br /> <strong>Por exemplo:</strong> 2566-1234 | 96828-0345.
+        </p>
+
+        <InputStyleMask
+          mask={phone[0] === '9' ? '99999-9999' : '9999-9999'}
+          value={phone}
+          onChange={e => setPhone(e.target)}
+          placeholder="Número de telefone ou celular"
+        />
+        {/*
+        <InputStyle
+          name="apartment"
+          type="text"
+          placeholder="Número de telefone ou celular"
+        /> */}
       </Container>
       <Container>
         <h1>Ocorrências - Observações Relevantes</h1>

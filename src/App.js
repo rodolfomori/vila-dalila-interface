@@ -10,6 +10,10 @@ import { persistor, store } from './store';
 import GlobalStyle from './styles/global';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import 'primereact/resources/themes/nova-light/theme.css';
+import 'primereact/resources/primereact.min.css';
+import 'primeicons/primeicons.css';
+
 function App() {
   return (
     <Provider store={store}>
