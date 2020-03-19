@@ -66,7 +66,7 @@ export default function NewAtivity() {
   const [selectBuilding, setSelectBuilding] = useState();
 
   const [phone, setPhone] = useState('');
-
+  const message = 'algo ';
   const [date, setDate] = useState('');
 
   console.log(date);
@@ -91,6 +91,7 @@ export default function NewAtivity() {
   }, []);
 
   useEffect(() => {
+    setBuildings(null);
     async function getDataBuilding() {
       try {
         const response = await api.get(`buildings/${selectTerr.number}`);
@@ -177,6 +178,7 @@ export default function NewAtivity() {
             onChange={setSelectMod}
             getOptionValue={mod => mod.name}
             getOptionLabel={mod => mod.name}
+            NoOptionsMessage={() => message}
           />
         )}
       </Container>
@@ -212,6 +214,9 @@ export default function NewAtivity() {
             }
             getOptionLabel={building =>
               `${building.address} / ${building.name}`
+            }
+            noOptionsMessage={() =>
+              'Nenhum condomínio cadastrado nesse território'
             }
           />
         ) : (
