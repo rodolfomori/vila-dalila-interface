@@ -15,7 +15,7 @@ import {
   CalendarStyle,
 } from './styles';
 
-import Calendar from '../../../components/Calendar';
+import pt from '../../../components/Calendar';
 
 export default function NewAtivity() {
   const [modalities, setModalities] = useState();
@@ -70,6 +70,7 @@ export default function NewAtivity() {
   const [date, setDate] = useState('');
 
   console.log(date);
+
   useEffect(() => {
     async function getData() {
       try {
@@ -135,7 +136,19 @@ export default function NewAtivity() {
             width: '95%',
           }}
         >
-          <Calendar value={date} onChange={e => setDate(e.value)} />
+          <CalendarStyle
+            inline={false}
+            dateFormat="DD dd 'de' MM 'de' yy"
+            showButtonBar
+            showIcon
+            style={{
+              padding: 0,
+              margin: 0,
+            }}
+            locale={pt}
+            value={date}
+            onChange={e => setDate(e.value)}
+          />
         </div>
       </Container>
 
