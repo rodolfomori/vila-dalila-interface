@@ -97,7 +97,7 @@ export default function NewAtivity() {
         setBuildings(response.data);
       } catch (err) {
         console.log(err);
-        toast.error('Esse território não possui condomínios cadastrados!');
+        // toast.error('Esse território não possui condomínios cadastrados!');
       }
     }
     getDataBuilding();
@@ -109,7 +109,7 @@ export default function NewAtivity() {
         publishers,
         building_id: selectBuilding.id,
         observations,
-        date: '02.02.2020',
+        date,
         modality_id: selectMod.id,
         apartment,
       });
